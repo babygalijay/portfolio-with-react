@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VICKIE BROWN</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    
+    <style>
+        .font-inter { font-family: 'Inter', sans-serif; }
+        html { scroll-behavior: smooth; }
+        body::-webkit-scrollbar { width: 8px; }
+        body::-webkit-scrollbar-track { background: #1f2937; }
+        body::-webkit-scrollbar-thumb { background: #374151; border-radius: 4px; }
+        body::-webkit-scrollbar-thumb:hover { background: #4b5563; }
+        .active-nav {
+            color: #22d3ee; /* cyan-400 */
+            border-bottom: 2px solid #4ade80; /* green-400 */
+        }
+        /* Style for the SVG icons within the metric cards (to mimic the React component styling) */
+        .icon-metric {
+            width: 40px;
+            height: 40px;
+            margin-right: 0.75rem;
+            padding: 0.5rem;
+            border-radius: 9999px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            color: rgb(17, 24, 39);
+        }
+    </style>
+    
+    </head>
+<body class="bg-gray-900 min-h-screen text-gray-100 font-inter">
+
+    <nav class="fixed top-0 left-0 w-full z-50 bg-gray-900/90 backdrop-blur-md shadow-lg border-b border-gray-700">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+            <h1 class="text-xl font-extrabold tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-cyan-400">
+                VICKIE BROWN
+            </h1>
+            <div class="hidden md:flex space-x-6">
+                <a href="#hero" class="nav-link text-sm font-medium transition-colors duration-300 uppercase tracking-wider text-gray-300 hover:text-white hover:border-b-2 hover:border-cyan-400/50">Home</a>
+                <a href="#success-snapshot" class="nav-link text-sm font-medium transition-colors duration-300 uppercase tracking-wider text-gray-300 hover:text-white hover:border-b-2 hover:border-cyan-400/50">Results</a>
+                <a href="#consulting" class="nav-link text-sm font-medium transition-colors duration-300 uppercase tracking-wider text-gray-300 hover:text-white hover:border-b-2 hover:border-cyan-400/50">Agriculture</a>
+                <a href="#tutoring" class="nav-link text-sm font-medium transition-colors duration-300 uppercase tracking-wider text-gray-300 hover:text-white hover:border-b-2 hover:border-cyan-400/50">STEM Ed.</a>
+                <a href="#development" class="nav-link text-sm font-medium transition-colors duration-300 uppercase tracking-wider text-gray-300 hover:text-white hover:border-b-2 hover:border-cyan-400/50">Dev. Portfolio</a>
+                <a href="#contact" class="nav-link text-sm font-medium transition-colors duration-300 uppercase tracking-wider text-gray-300 hover:text-white hover:border-b-2 hover:border-cyan-400/50">Contact</a>
+            </div>
+            <a
+                href="#contact"
+                class="hidden md:block px-4 py-2 text-sm font-semibold rounded-full bg-gradient-to-r from-green-500 to-cyan-500 hover:from-green-400 hover:to-cyan-400 text-gray-900 transition-all duration-300 shadow-lg"
+            >
+                Hire Me
+            </a>
+        </div>
+    </nav>
+
+    <div id="auth-status" class="fixed bottom-0 right-0 p-3 text-xs bg-gray-800/80 backdrop-blur-sm rounded-tl-lg z-50">
+        <p class="text-yellow-500">Connecting to services...</p>
+    </div>
+
+    <header id="hero" class="min-h-screen pt-24 flex items-center justify-center text-center bg-gray-900 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[url('https://placehold.co/1000x1000/0f172a/334155?text=Data')] bg-cover bg-center"></div>
+        <div class="relative z-10 max-w-4xl px-4">
+            <div class="mb-8">
+                <img
+                    src="https://res.cloudinary.com/dkoeutxie/image/upload/v1759334015/WhatsApp_Image_2025-08-22_at_03.10.40_af9445d2_ye2pve.jpg"
+                    alt="Your Professional Headshot"
+                    class="rounded-full mx-auto w-36 h-36 object-cover border-4 border-green-500 shadow-lg mb-6"
+                />
+            </div>
+            <h2 class="text-4xl sm:text-5xl font-light text-gray-300 mb-4 tracking-tight">
+                I am a results-focused
+            </h2>
+            <h1 class="text-5xl sm:text-7xl lg:text-8xl font-black mb-8 leading-tight">
+                <span id="animated-role" class="text-white block">Agricultural Consultant</span>
+            </h1>
+            <p class="text-xl sm:text-2xl text-gray-400 mb-10 font-medium">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline w-6 h-6 text-green-400 mr-2 -mt-1"><path d="M12 22c-5.523 0-10-4.477-10-10V4.5L12 2l10 2.5V12c0 5.523-4.477 10-10 10z"/></svg>
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-cyan-400 font-bold">
+                    From Soil to Screen:
+                </span> Driving **Tangible Growth** with Data-Driven Strategies and Modern Technology.
+            </p>
+            <a
+                href="#success-snapshot"
+                class="inline-block px-8 py-3 text-lg font-bold rounded-full bg-cyan-600 hover:bg-cyan-500 text-gray-900 transition-all duration-300 shadow-xl transform hover:scale-105"
+            >
+                View My Impact
+            </a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-16">
+
+        <section id="success-snapshot" class="py-20 text-center">
+            <h2 class="text-5xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-white">
+                Proven Impact. Tangible Results.
+            </h2>
+            <p class="text-xl text-gray-400 max-w-3xl mx-auto mb-16">
+                My commitment across all domains is simple: **deliver measurable growth.** Here's what that looks like.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="success-metric-card bg-gray-800 p-6 rounded-xl shadow-2xl border-t-4" style="border-color: rgb(74, 222, 128);" data-value="28" data-label="Avg. Client ROI Increase">
+                    <div class="flex items-center mb-4">
+                        <svg class="icon-metric" style="background-color: rgb(74, 222, 128);"><path d="M2 22v-4"/><path d="M6 22v-4"/><path d="M10 22v-4"/><path d="M14 22v-4"/><path d="M18 22v-4"/><path d="M22 22v-4"/><path d="M4 18l1.5-1.5l1.5 1.5l1.5-1.5l1.5 1.5l1.5-1.5l1.5 1.5l1.5-1.5l1.5 1.5l1.5-1.5l1.5 1.5l1.5-1.5l1.5 1.5"/><path d="M6 18c0-3 2-5 4-7c2-2 4-4 4-7"/><path d="M18 18c0-3-2-5-4-7c-2-2-4-4-4-7"/></svg>
+                        <h3 class="count-value text-5xl font-extrabold text-white">28%</h3>
+                    </div>
+                    <p class="text-xl font-semibold text-gray-200 mb-2">Avg. Client ROI Increase</p>
+                    <p class="text-gray-400 text-sm">Year-over-year revenue uplift achieved for agricultural clients through optimization.</p>
+                </div>
+
+                <div class="success-metric-card bg-gray-800 p-6 rounded-xl shadow-2xl border-t-4" style="border-color: rgb(59, 130, 246);" data-value="92" data-label="% Students Achieving 'A' Grade">
+                    <div class="flex items-center mb-4">
+                        <svg class="icon-metric" style="background-color: rgb(59, 130, 246);"><path d="M2 17l10-10l10 10"/><path d="M8 11.5l-6-4.5l10-10l10 10l-6 4.5"/><path d="M12 2l-10 10l10 10l10-10z"/></svg>
+                        <h3 class="count-value text-5xl font-extrabold text-white">92%</h3>
+                    </div>
+                    <p class="text-xl font-semibold text-gray-200 mb-2">% Students Achieving 'A' Grade</p>
+                    <p class="text-gray-400 text-sm">STEM students consistently outperform benchmarks in standardized testing and course finals.</p>
+                </div>
+
+                <div class="success-metric-card bg-gray-800 p-6 rounded-xl shadow-2xl border-t-4" style="border-color: rgb(45, 212, 191);" data-value="95" data-label="Avg. Website PageSpeed Score">
+                    <div class="flex items-center mb-4">
+                        <svg class="icon-metric" style="background-color: rgb(45, 212, 191);"><path d="M12 19.5c0 1.933-1.567 3.5-3.5 3.5s-3.5-1.567-3.5-3.5"/><path d="M12 19.5c0 1.933 1.567 3.5 3.5 3.5s3.5-1.567 3.5-3.5"/><path d="M12 19.5V12"/><path d="M15.5 16.5l-3.5-3.5"/><path d="M8.5 16.5l3.5-3.5"/><path d="M17.846 17.5l-1.346-1.346"/><path d="M6.154 17.5l1.346-1.346"/><path d="M19 12h-2"/><path d="M5 12h2"/><path d="M19 9h-2"/><path d="M5 9h2"/><path d="M17.846 6.5l-1.346 1.346"/><path d="M6.154 6.5l1.346 1.346"/><path d="M15.5 4.5l-3.5 3.5"/><path d="M8.5 4.5l3.5 3.5"/></svg>
+                        <h3 class="count-value text-5xl font-extrabold text-white">95+</h3>
+                    </div>
+                    <p class="text-xl font-semibold text-gray-200 mb-2">Avg. Website PageSpeed Score</p>
+                    <p class="text-gray-400 text-sm">Frontend projects consistently optimized for performance, accessibility, and SEO readiness.</p>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-16 border-gray-700" />
+
+        <section id="consulting" class="py-20">
+            <div class="flex flex-col lg:flex-row items-center justify-between mb-12">
+                <div class="lg:w-1/2">
+                    <h2 class="text-4xl font-extrabold text-green-400 mb-4 flex items-center">
+                        <svg class="w-10 h-10 mr-3 p-1 rounded-lg bg-green-900/50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 22v-4"/><path d="M6 22v-4"/><path d="M10 22v-4"/><path d="M14 22v-4"/><path d="M18 22v-4"/><path d="M22 22v-4"/><path d="M4 18l1.5-1.5l1.5 1.5l1.5-1.5l1.5 1.5l1.5-1.5l1.5 1.5l1.5-1.5l1.5 1.5l1.5-1.5l1.5 1.5l1.5-1.5l1.5 1.5"/><path d="M6 18c0-3 2-5 4-7c2-2 4-4 4-7"/><path d="M18 18c0-3-2-5-4-7c-2-2-4-4-4-7"/></svg>
+                        Agricultural Consulting: Cultivating Profit
+                    </h2>
+                    <p class="text-lg text-gray-300">
+                        I translate complex agricultural data into actionable strategies that **significantly boost yield, reduce waste, and ensure sustainability**. My focus is on leveraging technology and data science to drive real-world farm profitability.
+                    </p>
+                </div>
+                <div class="lg:w-1/2 flex justify-center lg:justify-end mt-8 lg:mt-0">
+                    <div class="bg-gray-800 p-4 rounded-xl shadow-xl border border-gray-700">
+                        <img
+                            src="https://placehold.co/400x250/10b981/ffffff?text=Agri+Dashboard"
+                            alt="Agricultural Consulting Dashboard"
+                            class="rounded-lg object-cover w-full h-auto"
+                        />
+                        <p class="text-sm text-gray-400 mt-3 text-center">Visualizing yield optimization strategies.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+                <div class="bg-gray-800 p-8 rounded-xl shadow-xl border-l-4 border-green-500">
+                    <h3 class="text-2xl font-bold text-white mb-3">Case Study: Resource Optimization</h3>
+                    <img src="https://placehold.co/350x200/065f46/ffffff?text=Irrigation+System" alt="Irrigation System Optimization" class="rounded-md object-cover w-full h-auto mb-4"/>
+                    <p class="text-gray-400 mb-4">
+                        **Problem:** A large-scale vineyard faced erratic water consumption and fertilizer costs.
+                    </p>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-start"><svg class="w-5 h-5 text-green-400 mr-2 mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6l-9 9-4.5-4.5"/><path d="M22 10l-10 10-5-5"/></svg> **My Solution:** Implemented a sensor-based irrigation model and created a custom data visualization dashboard (leveraging my dev skills).</li>
+                        <li class="flex items-start"><svg class="w-5 h-5 text-green-400 mr-2 mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-4"/></svg> **Success Rate:** Achieved a **35% reduction in annual water usage** and a **12% decrease in fertilizer expense** within one season.</li>
+                    </ul>
+                </div>
+                <div class="bg-gray-800 p-8 rounded-xl shadow-xl border-l-4 border-green-500">
+                    <h3 class="text-2xl font-bold text-white mb-3">Case Study: Market & Yield Forecasting</h3>
+                    <img src="https://placehold.co/350x200/065f46/ffffff?text=Yield+Forecast" alt="Yield Forecasting Graph" class="rounded-md object-cover w-full h-auto mb-4"/>
+                    <p class="text-gray-400 mb-4">
+                        **Problem:** A producer needed accurate forecasting to lock in future sales prices and maximize inventory profits.
+                    </p>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-start"><svg class="w-5 h-5 text-green-400 mr-2 mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6l-9 9-4.5-4.5"/><path d="M22 10l-10 10-5-5"/></svg> **My Solution:** Developed a predictive model integrating weather data, historical yield, and commodity market trends.</li>
+                        <li class="flex items-start"><svg class="w-5 h-5 text-green-400 mr-2 mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-4"/></svg> **Success Rate:** Improved forecast accuracy by **18%**, leading to a **$150k+ increase in hedging profits** in a volatile quarter.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-16 border-gray-700" />
+
+        <section id="tutoring" class="py-20">
+            <div class="flex flex-col lg:flex-row items-center justify-between mb-12">
+                <div class="lg:w-1/2">
+                    <h2 class="text-4xl font-extrabold text-blue-400 mb-4 flex items-center">
+                        <svg class="w-10 h-10 mr-3 p-1 rounded-lg bg-blue-900/50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 17l10-10l10 10"/><path d="M8 11.5l-6-4.5l10-10l10 10l-6 4.5"/><path d="M12 2l-10 10l10 10l10-10z"/></svg>
+                        STEM Education: Accelerating Potential
+                    </h2>
+                    <p class="text-lg text-gray-300">
+                        My tutoring is not about memorization; it's about **building conceptual mastery** in Physics, Calculus, and Computer Science. My unique methodology combines rigorous subject knowledge with structured problem-solving techniques.
+                    </p>
+                </div>
+                <div class="lg:w-1/2 flex justify-center lg:justify-end mt-8 lg:mt-0">
+                    <div class="bg-gray-800 p-4 rounded-xl shadow-xl border border-gray-700">
+                        <img
+                            src="https://placehold.co/400x250/3b82f6/ffffff?text=Science+Class"
+                            alt="STEM Education Classroom"
+                            class="rounded-lg object-cover w-full h-auto"
+                        />
+                        <p class="text-sm text-gray-400 mt-3 text-center">Interactive learning environment.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                <div class="bg-gray-800 p-6 rounded-xl shadow-xl border-t-4 border-blue-500">
+                    <svg class="w-8 h-8 text-blue-400 mb-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/><path d="M20 21v-2a4 4 0 0 0-3-3.87"/><path d="M22 10.5V15"/><path d="M22 10.5V15"/><path d="M22 10.5V15"/></svg>
+                    <p class="text-4xl font-extrabold text-white mb-2">100%</p>
+                    <p class="text-gray-300 font-semibold">University Acceptance Rate</p>
+                    <p class="text-gray-400 text-sm mt-1">Students placed in top-tier STEM university programs over the last 3 years.</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-xl shadow-xl border-t-4 border-blue-500">
+                    <svg class="w-8 h-8 text-blue-400 mb-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-4"/></svg>
+                    <p class="text-4xl font-extrabold text-white mb-2">180+</p>
+                    <p class="text-gray-300 font-semibold">Average SAT Math Score Gain</p>
+                    <p class="text-gray-400 text-sm mt-1">Documented average point increase for all students on first attempt post-tutoring.</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-xl shadow-xl border-t-4 border-blue-500">
+                    <svg class="w-8 h-8 text-blue-400 mb-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6l-9 9-4.5-4.5"/><path d="M22 10l-10 10-5-5"/></svg>
+                    <p class="text-4xl font-extrabold text-white mb-2">9/10</p>
+                    <p class="text-gray-300 font-semibold">Parent Satisfaction Score</p>
+                    <p class="text-gray-400 text-sm mt-1">Consistently high feedback on personalized curriculum development and communication.</p>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-16 border-gray-700" />
+
+        <section id="development" class="py-20">
+            <div class="flex flex-col lg:flex-row items-center justify-between mb-12">
+                <div class="lg:w-1/2">
+                    <h2 class="text-4xl font-extrabold text-cyan-400 mb-4 flex items-center">
+                        <svg class="w-10 h-10 mr-3 p-1 rounded-lg bg-cyan-900/50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                        Front-End Development: Code for Impact
+                    </h2>
+                    <p class="text-lg text-gray-300">
+                        I build **clean, fast, and responsive web applications** that drive engagement and solve real-world problems—often integrating the data analysis I use in my consulting work into beautiful UIs.
+                    </p>
+                </div>
+                <div class="lg:w-1/2 flex justify-center lg:justify-end mt-8 lg:mt-0">
+                    <div class="bg-gray-800 p-4 rounded-xl shadow-xl border border-gray-700">
+                        <img
+                            src="https://placehold.co/400x250/06b6d4/ffffff?text=Web+Code"
+                            alt="Front-End Development Screen"
+                            class="rounded-lg object-cover w-full h-auto"
+                        />
+                        <p class="text-sm text-gray-400 mt-3 text-center">Modern, data-driven web application architecture.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+                <div class="bg-gray-800 p-8 rounded-xl shadow-xl border-l-4 border-cyan-500">
+                    <h3 class="text-2xl font-bold text-white mb-3">Project: Farm ROI Calculator</h3>
+                    <img src="https://placehold.co/350x200/0891b2/ffffff?text=Calculator+App" alt="Farm ROI Calculator Screenshot" class="rounded-md object-cover w-full h-auto mb-4"/>
+                    <p class="text-gray-400 mb-4">
+                        A dynamic tool built with React and Tailwind CSS that allows farmers to input expenses and instantly visualize potential ROI scenarios based on market fluctuations.
+                    </p>
+                    <a href="#" class="text-cyan-400 hover:text-cyan-300 font-semibold flex items-center">
+                        View Live Project
+                        <svg class="w-4 h-4 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+                    </a>
+                </div>
+                <div class="bg-gray-800 p-8 rounded-xl shadow-xl border-l-4 border-cyan-500">
+                    <h3 class="text-2xl font-bold text-white mb-3">Project: Student Progress Tracker</h3>
+                    <img src="https://placehold.co/350x200/0891b2/ffffff?text=Progress+Tracker" alt="Student Progress Tracker Screenshot" class="rounded-md object-cover w-full h-auto mb-4"/>
+                    <p class="text-gray-400 mb-4">
+                        A simple, secure application for tutoring clients to track their assignment completion, test scores, and conceptual weak points in real-time.
+                    </p>
+                    <a href="#" class="text-cyan-400 hover:text-cyan-300 font-semibold flex items-center">
+                        View Live Project
+                        <svg class="w-4 h-4 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-16 border-gray-700" />
+
+        <section id="contact" class="py-20">
+            <h2 class="text-4xl font-extrabold text-white text-center mb-4">
+                Ready to Cultivate Success?
+            </h2>
+            <p class="text-xl text-gray-400 text-center max-w-2xl mx-auto mb-12">
+                Whether you need a full-stack farm analysis, a custom web application, or expert tutoring, I'm ready to discuss your goals.
+            </p>
+
+            <div class="max-w-xl mx-auto bg-gray-800 p-8 rounded-xl shadow-2xl border-t-4 border-green-500">
+                <form id="contact-form" class="space-y-4" action="https://formspree.io/f/xpwyjwlk" method="POST">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Name</label>
+                        <input
+                            type="text" id="name" name="name"
+                            class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:ring-green-500 focus:border-green-500"
+                            placeholder="Your Full Name" required
+                        />
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Email</label>
+                        <input
+                            type="email" id="email" name="_replyto" 
+                            class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:ring-green-500 focus:border-green-500"
+                            placeholder="name@company.com" required
+                        />
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Project Details</label>
+                        <textarea
+                            id="message" name="message" rows="4"
+                            class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:ring-green-500 focus:border-green-500"
+                            placeholder="Tell me about your consulting need, project, or tutoring goals..." required
+                        ></textarea>
+                    </div>
+
+                    <p id="form-status" class="text-sm font-semibold"></p>
+
+                    <button
+                        type="submit"
+                        class="w-full flex justify-center items-center px-6 py-3 font-bold rounded-lg bg-gradient-to-r from-green-500 to-cyan-500 hover:from-green-400 hover:to-cyan-400 text-gray-900 transition-all duration-300 shadow-lg transform hover:scale-[1.01]"
+                    >
+                        <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-20 10 20 10-2-10zM10 14h6"/></svg>
+                        Send Inquiry
+                    </button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-950 py-8 border-t border-gray-800 text-center">
+        <p class="text-gray-500 text-sm">
+            &copy; 2025 VICKIE BROWN. All rights reserved. | Built Meticulously.
+        </p>
+    </footer>
+
+    </body>
+</html>
