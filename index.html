@@ -61,29 +61,57 @@
 </head>
 <body class="bg-gray-900 min-h-screen text-gray-100 font-inter">
 
-    <nav class="fixed top-0 left-0 w-full z-50 bg-gray-900/90 backdrop-blur-sm shadow-xl border-b border-gray-700" aria-label="Main Navigation">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
-            <a href="#hero" class="text-xl font-extrabold tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-cyan-400 hover:text-white transition-colors duration-300">
-                VICKIE BROWN
-            </a>
-            
-            <div class="hidden md:flex space-x-8">
-                <a href="#hero" class="nav-link text-sm font-semibold transition-colors duration-300 uppercase tracking-wider text-gray-300 hover:text-white border-b-2 border-transparent" data-section="hero">Home</a>
-                <a href="#success-snapshot" class="nav-link text-sm font-semibold transition-colors duration-300 uppercase tracking-wider text-gray-300 hover:text-white border-b-2 border-transparent" data-section="success-snapshot">Results</a>
-                <a href="#consulting" class="nav-link text-sm font-semibold transition-colors duration-300 uppercase tracking-wider text-gray-300 hover:text-white border-b-2 border-transparent" data-section="consulting">Agriculture</a>
-                <a href="#tutoring" class="nav-link text-sm font-semibold transition-colors duration-300 uppercase tracking-wider text-gray-300 hover:text-white border-b-2 border-transparent" data-section="tutoring">STEM Ed.</a>
-                <a href="#development" class="nav-link text-sm font-semibold transition-colors duration-300 uppercase tracking-wider text-gray-300 hover:text-white border-b-2 border-transparent" data-section="development">Dev. Portfolio</a>
-                <a href="#contact" class="nav-link text-sm font-semibold transition-colors duration-300 uppercase tracking-wider text-gray-300 hover:text-white border-b-2 border-transparent" data-section="contact">Contact</a>
-            </div>
-            
+   <nav class="fixed top-0 left-0 w-full z-50 bg-gray-900/90 backdrop-blur-sm shadow-xl border-b border-gray-700" aria-label="Main Navigation">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+        
+        <a href="#hero" class="text-xl font-extrabold tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-cyan-400 hover:text-white transition-colors duration-300">
+            VICKIE BROWN
+        </a>
+        
+        <div class="hidden md:flex space-x-8">
+            <a href="#hero" class="nav-link text-sm font-semibold transition-colors duration-300 uppercase tracking-wider text-gray-300 hover:text-white border-b-2 border-transparent" data-section="hero">Home</a>
+            <a href="#success-snapshot" class="nav-link text-sm font-semibold transition-colors duration-300 uppercase tracking-wider text-gray-300 hover:text-white border-b-2 border-transparent" data-section="success-snapshot">Results</a>
+            <a href="#consulting" class="nav-link text-sm font-semibold transition-colors duration-300 uppercase tracking-wider text-gray-300 hover:text-white border-b-2 border-transparent" data-section="consulting">Agriculture</a>
+            <a href="#tutoring" class="nav-link text-sm font-semibold transition-colors duration-300 uppercase tracking-wider text-gray-300 hover:text-white border-b-2 border-transparent" data-section="tutoring">STEM Ed.</a>
+            <a href="#development" class="nav-link text-sm font-semibold transition-colors duration-300 uppercase tracking-wider text-gray-300 hover:text-white border-b-2 border-transparent" data-section="development">Dev. Portfolio</a>
+            <a href="#contact" class="nav-link text-sm font-semibold transition-colors duration-300 uppercase tracking-wider text-gray-300 hover:text-white border-b-2 border-transparent" data-section="contact">Contact</a>
+        </div>
+        
+        <a
+            href="#contact"
+            class="hidden md:block px-5 py-2 text-sm font-bold rounded-full bg-gradient-to-r from-green-500 to-cyan-500 hover:from-green-400 hover:to-cyan-400 text-gray-900 transition-all duration-300 shadow-xl transform hover:scale-105"
+        >
+            Hire Me Today
+        </a>
+
+        <button id="menu-button" type="button" class="md:hidden p-2 text-gray-300 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-500 rounded-lg" aria-expanded="false" aria-controls="mobile-menu">
+            <svg id="icon-open" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg id="icon-close" class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+    </div>
+    
+    <div id="mobile-menu" class="hidden md:hidden pb-4 transition-all duration-300 ease-in-out">
+        <div class="space-y-1 px-2 pt-2 pb-3 flex flex-col">
+            <a href="#hero" class="mobile-nav-link block w-full text-base font-medium py-2 px-3 rounded-md text-gray-300 hover:bg-gray-700 hover:text-white uppercase tracking-wider">Home</a>
+            <a href="#success-snapshot" class="mobile-nav-link block w-full text-base font-medium py-2 px-3 rounded-md text-gray-300 hover:bg-gray-700 hover:text-white uppercase tracking-wider">Results</a>
+            <a href="#consulting" class="mobile-nav-link block w-full text-base font-medium py-2 px-3 rounded-md text-gray-300 hover:bg-gray-700 hover:text-white uppercase tracking-wider">Agriculture</a>
+            <a href="#tutoring" class="mobile-nav-link block w-full text-base font-medium py-2 px-3 rounded-md text-gray-300 hover:bg-gray-700 hover:text-white uppercase tracking-wider">STEM Ed.</a>
+            <a href="#development" class="mobile-nav-link block w-full text-base font-medium py-2 px-3 rounded-md text-gray-300 hover:bg-gray-700 hover:text-white uppercase tracking-wider">Dev. Portfolio</a>
+            <a href="#contact" class="mobile-nav-link block w-full text-base font-medium py-2 px-3 rounded-md text-gray-300 hover:bg-gray-700 hover:text-white uppercase tracking-wider">Contact</a>
+
             <a
                 href="#contact"
-                class="hidden md:block px-5 py-2 text-sm font-bold rounded-full bg-gradient-to-r from-green-500 to-cyan-500 hover:from-green-400 hover:to-cyan-400 text-gray-900 transition-all duration-300 shadow-xl transform hover:scale-105"
+                class="mobile-nav-link block w-full mt-4 text-center px-5 py-2 text-base font-bold rounded-lg bg-gradient-to-r from-green-500 to-cyan-500 text-gray-900 transition-all duration-300"
             >
                 Hire Me Today
             </a>
         </div>
-    </nav>
+    </div>
+</nav>
 
     <div id="auth-status" class="fixed bottom-0 right-0 p-3 text-xs bg-gray-800/80 backdrop-blur-sm rounded-tl-lg z-50">
         <p class="text-yellow-500">Awaiting user action...</p>
@@ -554,6 +582,41 @@ document.addEventListener('DOMContentLoaded', initRoleSlider);
 // in your HTML to make the animation work:
 // class="..." transition-opacity duration-700 ease-in-out opacity-0
 // (I've added it to the HTML above)
+</script>
+<script>
+   // Function to handle the mobile menu toggle
+function initMobileMenuToggle() {
+    const button = document.getElementById('menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const iconOpen = document.getElementById('icon-open');
+    const iconClose = document.getElementById('icon-close');
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+    function toggleMenu() {
+        const isExpanded = button.getAttribute('aria-expanded') === 'true' || false;
+        
+        // Toggle the expanded state
+        button.setAttribute('aria-expanded', !isExpanded);
+        
+        // Toggle the visibility and icon
+        mobileMenu.classList.toggle('hidden');
+        iconOpen.classList.toggle('hidden');
+        iconClose.classList.toggle('hidden');
+    }
+
+    // Attach event listener to the button
+    button.addEventListener('click', toggleMenu);
+
+    // Close the menu when a link is clicked (for better mobile UX)
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            // Only close if the menu is open
+            if (button.getAttribute('aria-expanded') === 'true') {
+                toggleMenu();
+            }
+        });
+    });
+} 
 </script>
 </body>
 </html>
