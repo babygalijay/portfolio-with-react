@@ -60,8 +60,7 @@
     
 </head>
 <body class="bg-gray-900 min-h-screen text-gray-100 font-inter">
-
-   <nav class="fixed top-0 left-0 w-full z-50 bg-gray-900/90 backdrop-blur-sm shadow-xl border-b border-gray-700" aria-label="Main Navigation">
+<nav class="fixed top-0 left-0 w-full z-50 bg-gray-900/90 backdrop-blur-sm shadow-xl border-b border-gray-700" aria-label="Main Navigation">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
         
         <a href="#hero" class="text-xl font-extrabold tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-cyan-400 hover:text-white transition-colors duration-300">
@@ -111,6 +110,7 @@
             </a>
         </div>
     </div>
+</nav>
 </nav>
 
     <div id="auth-status" class="fixed bottom-0 right-0 p-3 text-xs bg-gray-800/80 backdrop-blur-sm rounded-tl-lg z-50">
@@ -509,101 +509,77 @@
     </div>
 </footer>
 
-    <script>
-        // Smooth scroll polyfill for older browsers (not strictly needed for modern ones, but good practice)
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                if (this.getAttribute('href') !== '#') {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
+   <script>
+    // ----------------------------------------------------------------------
+    // 1. Mobile Menu Toggle Logic
+    // ----------------------------------------------------------------------
+    function initMobileMenuToggle() {
+        const button = document.getElementById('menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const iconOpen = document.getElementById('icon-open');
+        const iconClose = document.getElementById('icon-close');
+        const mobileLinks = document.querySelectorAll('.mobile-nav-link');
 
-        // 1. Active Navigation Link Logic
-        const navLinks = document.querySelectorAll('.nav-link');
-        const sections = document.querySelectorAll('main section, header');
-        const options = {
-            root: null,
-            threshold: 0.3, // Highlight when 30% of the section is visible
-            rootMargin: "-20% 0px -60% 0px" // Adjusted to make it more responsive to scrolling
-        };
+        if (!button || !mobileMenu) return; // Exit if elements aren't found
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                const targetId = entry.target.id;
-                const navLink = document.querySelector(`.nav-link[data-section="${targetId}"]`);
-                
-                // Clear all active classes
-                navLinks.forEach(link => link.classList.remove('active-nav'));
-
-                if (entry.isIntersecting) {
-                    if (navLink) {
-                        navLink.classList.add('active-nav');
-                    }
-                }
-            });
-        }, options);
-
-        sections.forEach(section => {
-            observer.observe(section);
-        });
-        
-        // Special case for hero section when at the very top
-        document.addEventListener('scroll', () => {
-            if (window.scrollY < 200) {
-                navLinks.forEach(link => link.classList.remove('active-nav'));
-                document.querySelector(`.nav-link[data-section="hero"]`).classList.add('active-nav');
-            }
-        });
-
-
-        // 2. Metric Counter Animation Logic
-        const counterCards = document.querySelectorAll('.success-metric-card');
-        const counterObserver = new IntersectionObserver(
-            (entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        animateCounters();
-                        observer.unobserve(entry.target); // Stop observing once animated
-                    }
-                });
-            },
-            { threshold: 0.5 } // Trigger when 50% of the section is visible
-        );
-
-        counterCards.forEach(card => {
-            counterObserver.observe(card);
-        });
-
-        function animateCounters() {
-            document.querySelectorAll('.count-value').forEach(element => {
-                const targetValue = parseInt(element.getAttribute('data-value'));
-                const unit = element.getAttribute('data-unit') || '';
-                let startTimestamp = null;
-                const duration = 1500; // 1.5 seconds
-
-                const step = (timestamp) => {
-                    if (!startTimestamp) startTimestamp = timestamp;
-                    const progress = timestamp - startTimestamp;
-                    const current = Math.min(progress / duration, 1) * targetValue;
-
-                    element.textContent = Math.floor(current) + unit;
-
-                    if (progress < duration) {
-                        window.requestAnimationFrame(step);
-                    }
-                };
-                window.requestAnimationFrame(step);
-            });
+        function toggleMenu() {
+            const isExpanded = button.getAttribute('aria-expanded') === 'true' || false;
+            
+            button.setAttribute('aria-expanded', !isExpanded);
+            mobileMenu.classList.toggle('hidden');
+            iconOpen.classList.toggle('hidden');
+            iconClose.classList.toggle('hidden');
         }
 
+        button.addEventListener('click', toggleMenu);
 
-        // 3. Contact Form Submission Logic (for Formspree)
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (button.getAttribute('aria-expanded') === 'true') {
+                    toggleMenu();
+                }
+            });
+        });
+    }
+
+
+    // ----------------------------------------------------------------------
+    // 2. Role Slider Animation Logic
+    // ----------------------------------------------------------------------
+    function initRoleSlider() {
+        const roles = ["Agricultural Consultant", "Front-End Developer", "STEM Tutor"];
+        const element = document.getElementById("animated-role");
+        if (!element) return; // Exit if element isn't found
+
+        let roleIndex = 0;
+
+        function updateRole() {
+            element.classList.remove('opacity-100');
+            element.classList.add('opacity-0');
+
+            setTimeout(() => {
+                element.textContent = roles[roleIndex];
+                roleIndex = (roleIndex + 1) % roles.length;
+                element.classList.remove('opacity-0');
+                element.classList.add('opacity-100');
+            }, 350); 
+        }
+
+        element.textContent = roles[roleIndex];
+        element.classList.add('opacity-100');
+        roleIndex = (roleIndex + 1) % roles.length;
+
+        setInterval(updateRole, 3500); 
+    }
+
+
+    // ----------------------------------------------------------------------
+    // 3. Contact Form Submission Logic (for Formspree)
+    // ----------------------------------------------------------------------
+    function initContactForm() {
         const form = document.getElementById('contact-form');
         const formStatus = document.getElementById('form-status');
+        if (!form || !formStatus) return; // Exit if elements aren't found
 
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -637,92 +613,166 @@
                 console.error('Form submission error:', error);
             }
         });
-
-        // 4. Status Indicator Update
-        document.getElementById('auth-status').querySelector('p').textContent = 'All services online.';
-        document.getElementById('auth-status').querySelector('p').classList.remove('text-yellow-500');
-        document.getElementById('auth-status').querySelector('p').classList.add('text-green-500');
-    </script>
-    <script>
-        
-    // Function to cycle through the roles in the Hero section
-function initRoleSlider() {
-    const roles = ["Agricultural Consultant", "Front-End Developer", "STEM Tutor"];
-    const element = document.getElementById("animated-role");
-    let roleIndex = 0;
-
-    function updateRole() {
-        // 1. Fade out (change opacity class)
-        element.classList.remove('opacity-100');
-        element.classList.add('opacity-0');
-
-        setTimeout(() => {
-            // 2. Change text when fully hidden
-            element.textContent = roles[roleIndex];
-            roleIndex = (roleIndex + 1) % roles.length;
-            
-            // 3. Fade in (restore opacity class)
-            element.classList.remove('opacity-0');
-            element.classList.add('opacity-100');
-        }, 350); // Matches the duration-700 / 2 for smooth transition
     }
 
-    // Initialize with the first role
-    element.textContent = roles[roleIndex];
-    element.classList.add('opacity-100');
-    roleIndex = (roleIndex + 1) % roles.length;
-
-    // Set the interval for role changes (e.g., every 3.5 seconds)
-    setInterval(updateRole, 3500); 
-}
-
-// Ensure this runs when the page loads
-document.addEventListener('DOMContentLoaded', initRoleSlider);
-
-// You must also add the following CSS class to the span element
-// in your HTML to make the animation work:
-// class="..." transition-opacity duration-700 ease-in-out opacity-0
-// (I've added it to the HTML above)
-</script>
-<script>
-    // Function to handle the mobile menu toggle
-    function initMobileMenuToggle() {
-        // Get all necessary elements by their IDs and class
-        const button = document.getElementById('menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const iconOpen = document.getElementById('icon-open');
-        const iconClose = document.getElementById('icon-close');
-        // Select all links inside the mobile menu
-        const mobileLinks = document.querySelectorAll('.mobile-nav-link');
-
-        function toggleMenu() {
-            // Check the current expanded state from the button attribute
-            const isExpanded = button.getAttribute('aria-expanded') === 'true' || false;
-            
-            // 1. Toggle the expanded state
-            button.setAttribute('aria-expanded', !isExpanded);
-            
-            // 2. Toggle the visibility of the menu content
-            mobileMenu.classList.toggle('hidden');
-            
-            // 3. Toggle the hamburger/close icon visuals
-            iconOpen.classList.toggle('hidden');
-            iconClose.classList.toggle('hidden');
-        }
-
-        // Attach the click handler to the hamburger button
-        button.addEventListener('click', toggleMenu);
-
-        // Close the menu when any link is clicked (improves mobile UX)
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                // Check if the menu is open before closing it
-                if (button.getAttribute('aria-expanded') === 'true') {
-                    toggleMenu();
+    // ----------------------------------------------------------------------
+    // 4. Smooth Scroll Logic
+    // ----------------------------------------------------------------------
+    function initSmoothScroll() {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth'
+                    });
                 }
             });
         });
     }
+    
+    // ----------------------------------------------------------------------
+    // 5. Active Navigation Link Logic (Intersection Observer)
+    // ----------------------------------------------------------------------
+    function initActiveNavLinks() {
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('main section, header');
+        
+        // This is a CSS style you need to add for the link highlighting
+        // Example: .active-nav { border-bottom-color: #38bdf8; color: white !important; }
+
+        const options = {
+            root: null,
+            threshold: 0.3,
+            rootMargin: "-20% 0px -60% 0px" 
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            // Remove active class from all links first
+            navLinks.forEach(link => {
+                link.classList.remove('active-nav');
+                // Use Tailwind classes if you haven't defined .active-nav
+                // link.classList.remove('text-white', 'border-cyan-400'); 
+                // link.classList.add('text-gray-300', 'border-transparent');
+            });
+
+            // Find the currently intersecting section and activate its link
+            let activeId = null;
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    activeId = entry.target.id;
+                }
+            });
+
+            if (activeId) {
+                 const navLink = document.querySelector(`.nav-link[data-section="${activeId}"]`);
+                 if (navLink) {
+                    navLink.classList.add('active-nav');
+                    // If using Tailwind classes directly:
+                    // navLink.classList.remove('text-gray-300', 'border-transparent');
+                    // navLink.classList.add('text-white', 'border-cyan-400'); 
+                 }
+            }
+
+            // Special case for hero section when at the very top
+            if (window.scrollY < 200) {
+                const heroLink = document.querySelector(`.nav-link[data-section="hero"]`);
+                if (heroLink) {
+                    navLinks.forEach(link => link.classList.remove('active-nav'));
+                    heroLink.classList.add('active-nav');
+                    // If using Tailwind classes directly:
+                    // heroLink.classList.add('text-white', 'border-cyan-400');
+                }
+            }
+        }, options);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Initial check on load
+        document.addEventListener('scroll', () => {
+             // Re-run intersection observer logic on scroll for better accuracy
+             // (Or just use the hero special case for efficiency)
+             if (window.scrollY < 200) {
+                navLinks.forEach(link => link.classList.remove('active-nav'));
+                const heroLink = document.querySelector(`.nav-link[data-section="hero"]`);
+                if (heroLink) {
+                    heroLink.classList.add('active-nav');
+                }
+            }
+        });
+
+    }
+
+
+    // ----------------------------------------------------------------------
+    // 6. Metric Counter Animation Logic (Combined from your original script)
+    // ----------------------------------------------------------------------
+    function animateCounters() {
+        document.querySelectorAll('.count-value').forEach(element => {
+            const targetValue = parseInt(element.getAttribute('data-value'));
+            const unit = element.getAttribute('data-unit') || '';
+            let startTimestamp = null;
+            const duration = 1500; // 1.5 seconds
+
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = timestamp - startTimestamp;
+                const current = Math.min(progress / duration, 1) * targetValue;
+
+                element.textContent = Math.floor(current) + unit;
+
+                if (progress < duration) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        });
+    }
+
+    function initMetricCounters() {
+        const counterCards = document.querySelectorAll('.success-metric-card');
+        if (counterCards.length === 0) return;
+
+        const counterObserver = new IntersectionObserver(
+            (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounters();
+                        observer.unobserve(entry.target); // Stop observing once animated
+                    }
+                });
+            },
+            { threshold: 0.5 } // Trigger when 50% of the section is visible
+        );
+
+        counterCards.forEach(card => {
+            counterObserver.observe(card);
+        });
+    }
+
+    // ----------------------------------------------------------------------
+    // Main Initialization
+    // ----------------------------------------------------------------------
+    document.addEventListener('DOMContentLoaded', () => {
+        initMobileMenuToggle();
+        initRoleSlider();
+        initContactForm();
+        initSmoothScroll();
+        initActiveNavLinks(); 
+        initMetricCounters(); 
+
+        // Status Indicator Update (moved from a separate script)
+        const authStatus = document.getElementById('auth-status');
+        if (authStatus) {
+            const p = authStatus.querySelector('p');
+            p.textContent = 'All services online.';
+            p.classList.remove('text-yellow-500');
+            p.classList.add('text-green-500');
+        }
+    });
 
 </script>
 </body>
