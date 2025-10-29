@@ -584,39 +584,45 @@ document.addEventListener('DOMContentLoaded', initRoleSlider);
 // (I've added it to the HTML above)
 </script>
 <script>
-   // Function to handle the mobile menu toggle
-function initMobileMenuToggle() {
-    const button = document.getElementById('menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const iconOpen = document.getElementById('icon-open');
-    const iconClose = document.getElementById('icon-close');
-    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+    // Function to handle the mobile menu toggle
+    function initMobileMenuToggle() {
+        // Get all necessary elements by their IDs and class
+        const button = document.getElementById('menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const iconOpen = document.getElementById('icon-open');
+        const iconClose = document.getElementById('icon-close');
+        // Select all links inside the mobile menu
+        const mobileLinks = document.querySelectorAll('.mobile-nav-link');
 
-    function toggleMenu() {
-        const isExpanded = button.getAttribute('aria-expanded') === 'true' || false;
-        
-        // Toggle the expanded state
-        button.setAttribute('aria-expanded', !isExpanded);
-        
-        // Toggle the visibility and icon
-        mobileMenu.classList.toggle('hidden');
-        iconOpen.classList.toggle('hidden');
-        iconClose.classList.toggle('hidden');
+        function toggleMenu() {
+            // Check the current expanded state from the button attribute
+            const isExpanded = button.getAttribute('aria-expanded') === 'true' || false;
+            
+            // 1. Toggle the expanded state
+            button.setAttribute('aria-expanded', !isExpanded);
+            
+            // 2. Toggle the visibility of the menu content
+            mobileMenu.classList.toggle('hidden');
+            
+            // 3. Toggle the hamburger/close icon visuals
+            iconOpen.classList.toggle('hidden');
+            iconClose.classList.toggle('hidden');
+        }
+
+        // Attach the click handler to the hamburger button
+        button.addEventListener('click', toggleMenu);
+
+        // Close the menu when any link is clicked (improves mobile UX)
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                // Check if the menu is open before closing it
+                if (button.getAttribute('aria-expanded') === 'true') {
+                    toggleMenu();
+                }
+            });
+        });
     }
 
-    // Attach event listener to the button
-    button.addEventListener('click', toggleMenu);
-
-    // Close the menu when a link is clicked (for better mobile UX)
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            // Only close if the menu is open
-            if (button.getAttribute('aria-expanded') === 'true') {
-                toggleMenu();
-            }
-        });
-    });
-} 
 </script>
 </body>
 </html>
