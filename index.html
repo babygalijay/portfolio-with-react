@@ -1,823 +1,335 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VICKIE BROWN - Web Developer, Agricultural Consultant & STEM Educator</title>
+    <title>VICKIE BROWN - Web Developer</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234ade80' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 22c-5.523 0-10-4.477-10-10V4.5L12 2l10 2.5V12c0 5.523-4.477 10-10 10z'/%3E%3C/svg%3E">
     
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts & Tailwind CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    
-    <style>
-        .font-inter { font-family: 'Inter', sans-serif; }
-        html { scroll-behavior: smooth; }
-        /* Custom Scrollbar for better dark mode aesthetics */
-        body::-webkit-scrollbar { width: 8px; }
-        body::-webkit-scrollbar-track { background: #1f2937; }
-        body::-webkit-scrollbar-thumb { background: #374151; border-radius: 4px; }
-        body::-webkit-scrollbar-thumb:hover { background: #4b5563; }
-        
-        /* Active nav link style */
-        .active-nav {
-            color: #22d3ee !important; /* cyan-400 */
-            border-color: #4ade80 !important; /* green-400 */
-            border-bottom-width: 2px !important;
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
         }
-
-        /* SVG icon style for metric cards (optimized) */
-        .icon-metric {
-            width: 44px; /* Slightly larger */
-            height: 44px;
-            margin-right: 0.75rem;
-            padding: 0.6rem; /* Slightly more padding */
-            border-radius: 50%; /* Changed to 50% for a perfect circle */
-            fill: none;
-            stroke: currentColor;
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            /* Text color inside the circle should be dark for contrast */
-            color: #111827; /* gray-900 */
-        }
-
-        /* Hero Animation Text Style */
-        #animated-role {
-            display: inline-block;
-            transition: color 0.5s ease-in-out;
-        }
-
-        /* Keyframes for a subtle glow/pulse on the metric cards */
-        @keyframes pulse-border {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.4); }
-            50% { box-shadow: 0 0 0 4px rgba(74, 222, 128, 0.1); }
-        }
-
-        .success-metric-card:hover {
-            animation: pulse-border 1.5s infinite;
-        }
-    </style>
-    
+    </script>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-gray-900 min-h-screen text-gray-100 font-inter">
-<nav class="fixed top-0 left-0 w-full z-50 bg-gray-900/90 backdrop-blur-sm shadow-xl border-b border-gray-700" aria-label="Main Navigation">
-    <div class="container mx-auto px-4 sm:px-g:px-8 py-3 flex justify-between items-center">
-        
-        <a href="#hero" class="text-xl font-extrabold tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-cyan-400 hover:text-white transition-colors duration-300">
-            VICKIE BROWN
-        </a>
-        
-        <div class="hidden md:flex space-x-8">
-            <a href="#hero" class="nav-link text-sm font-semibold transition-colors duration-300 uppercase tracking-wider text-gray-300 hover:text-white border-b-2 border-transparent" data-section="hero">Home</a>
-            <a href="#success-snapshot" class="nav-link text-sm font-semibold transition-colors duration-300 uppercase tracking-wider text-gray-300 hover:text-white border-b-2 border-transparent" data-section="success-snapshot">Results</a>
-            <a href="#consulting" class="nav-link text-sm font-semibold transition-colors duration-300 uppercase tracking-wider text-gray-300 hover:text-white border-b-2 border-transparent" data-section="consulting">Agriculture</a>
-            <a href="#tutoring" class="nav-link text-sm font-semibold transition-colors duration-300 uppercase tracking-wider text-gray-300 hover:text-white border-b-2 border-transparent" data-section="tutoring">STEM Ed.</a>
-            <a href="#development" class="nav-link text-sm font-semibold transition-colors duration-300 uppercase tracking-wider text-gray-300 hover:text-white border-b-2 border-transparent" data-section="development">Dev. Portfolio</a>
-            <a href="#contact" class="nav-link text-sm font-semibold transition-colors duration-300 uppercase tracking-wider text-gray-300 hover:text-white border-b-2 border-transparent" data-section="contact">Contact</a>
-        </div>
-        
-        <a
-            href="#contact"
-            class="hidden md:block px-5 py-2 text-sm font-bold rounded-full bg-gradient-to-r from-green-500 to-cyan-500 hover:from-green-400 hover:to-cyan-400 text-gray-900 transition-all duration-300 shadow-xl transform hover:scale-105"
-        >
-            Hire Me Today
-        </a>
+<body class="bg-gray-900 min-h-screen text-gray-100 font-inter antialiased">
 
-        <button id="menu-button" type="button" class="md:hidden p-2 text-gray-300 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-500 rounded-lg" aria-expanded="false" aria-controls="mobile-menu">
-            <svg id="icon-open" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-            <svg id="icon-close" class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-        </button>
-    </div>
-    
-    <div id="mobile-menu" class="hidden md:hidden pb-4 transition-all duration-300 ease-in-out">
-        <div class="space-y-1 px-2 pt-2 pb-3 flex flex-col">
-            <a href="#hero" class="mobile-nav-link block w-full text-base font-medium py-2 px-3 rounded-md text-gray-300 hover:bg-gray-700 hover:text-white uppercase tracking-wider">Home</a>
-            <a href="#success-snapshot" class="mobile-nav-link block w-full text-base font-medium py-2 px-3 rounded-md text-gray-300 hover:bg-gray-700 hover:text-white uppercase tracking-wider">Results</a>
-            <a href="#consulting" class="mobile-nav-link block w-full text-base font-medium py-2 px-3 rounded-md text-gray-300 hover:bg-gray-700 hover:text-white uppercase tracking-wider">Agriculture</a>
-            <a href="#tutoring" class="mobile-nav-link block w-full text-base font-medium py-2 px-3 rounded-md text-gray-300 hover:bg-gray-700 hover:text-white uppercase tracking-wider">STEM Ed.</a>
-            <a href="#development" class="mobile-nav-link block w-full text-base font-medium py-2 px-3 rounded-md text-gray-300 hover:bg-gray-700 hover:text-white uppercase tracking-wider">Dev. Portfolio</a>
-            <a href="#contact" class="mobile-nav-link block w-full text-base font-medium py-2 px-3 rounded-md text-gray-300 hover:bg-gray-700 hover:text-white uppercase tracking-wider">Contact</a>
-
-            <a
-                href="#contact"
-                class="mobile-nav-link block w-full mt-4 text-center px-5 py-2 text-base font-bold rounded-lg bg-gradient-to-r from-green-500 to-cyan-500 text-gray-900 transition-all duration-300"
-            >
-                Hire Me Today
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-gray-900/90 backdrop-blur-md border-b border-gray-800">
+        <div class="container mx-auto px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- LOGO -->
+            <a href="#hero" class="text-2xl font-black tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-green-400">
+                VICKIE BROWN
             </a>
-        </div>
-    </div>
-</nav>
 
-
-    <div id="auth-status" class="fixed bottom-0 right-0 p-3 text-xs bg-gray-800/80 backdrop-blur-sm rounded-tl-lg z-50">
-        <p class="text-yellow-500">Awaiting user action...</p>
-    </div>
-
-    <header id="hero" class="min-h-screen pt-24 flex items-center justify-center text-center bg-gray-900 relative overflow-hidden">
-        <div class="absolute inset-0 opacity-5 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMjAnIGhlaWdodD0nMTIwJyB2aWV3Qm94PScwIDAgMTIwIDEyMCc%2BCiAgPHRpdGxlPkRpYW1vbmQgUGF0dGVybjwvL3RpdGxlPgogIDxnIGZpbGw9J25vbmUnIGZpbGwtcnVsZT0nZXZlbm9kZCcpPgogICAgPHBhdGggZmlsbD0nIzBlMTI0MnEnIGZpbGwtb3BhY2l0eT0nLjEnIGQ9J002MCA5Mkw5MCA2MEw2MCAzMEwzMCA2MCc%2BLCcvPgogICAgPHBhdGggZmlsbD0nIzBlMTI0MnEnIGZpbGwtb3BhY2l0eT0nLjEnIGQ9J00xMjAgNjBMMTgwIDEyMEwxMjAgMTgwTDYwIDEyMCc%2BLCcvPgogIDwvZz4KPC9zdmc%2BCg==')] bg-repeat"></div>
-        
-        <div class="relative z-10 max-w-5xl px-4">
-            <div class="mb-8">
-                <img
-                    src="https://res.cloudinary.com/dkoeutxie/image/upload/v1759334015/WhatsApp_Image_2025-08-22_at_03.10.40_af9445d2_ye2pve.jpg"
-                    alt="Vickie Brown Professional Headshot"
-                    class="rounded-full mx-auto w-40 h-40 object-cover border-4 border-green-500 shadow-2xl mb-6 transform transition-transform duration-500 hover:scale-105"
-                />
-            </div>
-            
-            <h2 class="text-4xl sm:text-6xl font-extralight text-gray-300 mb-4 tracking-wide">
-    I am a results-focused
-</h2>
-<h1 class="text-6xl sm:text-8xl lg:text-9xl font-black mb-8 leading-none">
-    <span 
-        id="animated-role" 
-        class="text-white block bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-cyan-400 to-green-400 transition-opacity duration-700 ease-in-out">
-        </span>
-</h1>
-            <p class="text-xl sm:text-2xl text-gray-400 mb-12 font-medium max-w-3xl mx-auto">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline w-6 h-6 text-green-400 mr-2 -mt-1"><path d="M12 22c-5.523 0-10-4.477-10-10V4.5L12 2l10 2.5V12c0 5.523-4.477 10-10 10z"/></svg>
-                <span class="bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-cyan-400 font-bold">
-                    From Soil to Screen:
-                </span> Driving **Tangible Growth** with Data-Driven Strategies and Modern Technology.
-            </p>
-            
-            <a
-                href="#success-snapshot"
-                class="inline-block px-10 py-4 text-xl font-bold rounded-full bg-cyan-600 hover:bg-cyan-500 text-gray-900 transition-all duration-300 shadow-2xl transform hover:scale-105 hover:shadow-cyan-500/50"
-            >
-                View My Impact
-            </a>
-        </div>
-    </header>
-
-    <section id="skills" class="pt-24 pb-20 px-4 sm:px-6 lg:px-8">
-    <div class="container mx-auto">
-        <h2 class="text-4xl sm:text-5xl font-extrabold text-center mb-16">
-            <span class="bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-cyan-400">
-                Technical Skills
-            </span>
-        </h2>
-
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 max-w-4xl mx-auto">
-
-            <div class="skill-card p-6 bg-gray-800 rounded-xl shadow-2xl transition-all duration-300 hover:scale-105 hover:bg-gray-700 border border-gray-700 hover:border-green-400 text-center">
-                <svg class="h-12 w-12 mx-auto mb-4 text-orange-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3 4 10 4 10-4 10-4"/><path d="M2 16s3 4 10 4 10-4 10-4"/><path d="M2 8s3 4 10 4 10-4 10-4"/><path d="M12 2v20"/></svg>
-                <h3 class="text-xl font-bold text-gray-50 mb-1">HTML5</h3>
-                <p class="text-sm text-gray-400">Structure & Semantics</p>
-            </div>
-
-            <div class="skill-card p-6 bg-gray-800 rounded-xl shadow-2xl transition-all duration-300 hover:scale-105 hover:bg-gray-700 border border-gray-700 hover:border-green-400 text-center">
-                <svg class="h-12 w-12 mx-auto mb-4 text-blue-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 3v18M17 3v18M3 10h18M3 14h18"/></svg>
-                <h3 class="text-xl font-bold text-gray-50 mb-1">CSS3</h3>
-                <p class="text-sm text-gray-400">Styling & Responsiveness</p>
-            </div>
-
-            <div class="skill-card p-6 bg-gray-800 rounded-xl shadow-2xl transition-all duration-300 hover:scale-105 hover:bg-gray-700 border border-gray-700 hover:border-green-400 text-center">
-                <svg class="h-12 w-12 mx-auto mb-4 text-purple-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l-4-4-4 4M12 6v12"/></svg>
-                <h3 class="text-xl font-bold text-gray-50 mb-1">Bootstrap</h3>
-                <p class="text-sm text-gray-400">Framework/Utility</p>
-            </div>
-
-            <div class="skill-card p-6 bg-gray-800 rounded-xl shadow-2xl transition-all duration-300 hover:scale-105 hover:bg-gray-700 border border-gray-700 hover:border-green-400 text-center">
-                <svg class="h-12 w-12 mx-auto mb-4 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 0 1 11.21 3 9 9 0 0 0 21 12.79z"/></svg>
-                <h3 class="text-xl font-bold text-gray-50 mb-1">JavaScript</h3>
-                <p class="text-sm text-gray-400">Logic & Interactivity</p>
-            </div>
-
-            <div class="skill-card p-6 bg-gray-800 rounded-xl shadow-2xl transition-all duration-300 hover:scale-105 hover:bg-gray-700 border border-gray-700 hover:border-green-400 text-center">
-                <svg class="h-12 w-12 mx-auto mb-4 text-cyan-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="2" x2="12" y2="22"/><path d="M18.36 5.64l-12.72 12.72M5.64 5.64l12.72 12.72"/></svg>
-                <h3 class="text-xl font-bold text-gray-50 mb-1">React</h3>
-                <p class="text-sm text-gray-400">Component Framework</p>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-    <main class="container mx-auto px-4 py-16">
-
-        <section id="success-snapshot" class="py-20 text-center">
-            <h2 class="text-5xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-white">
-                Proven Impact. Tangible Results. 📊
-            </h2>
-            <p class="text-xl text-gray-400 max-w-3xl mx-auto mb-16">
-                My commitment across all domains is simple: **deliver measurable growth.** Here's what that looks like in numbers.
-            </p>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="success-metric-card bg-gray-800 p-8 rounded-xl shadow-2xl border-t-4 hover:border-l-4 transition-all duration-300" style="border-color: rgb(74, 222, 128);">
-                    <div class="flex items-center mb-4 justify-center">
-                        <svg class="icon-metric" style="background-color: rgb(74, 222, 128);"><path d="M2 22v-4"/><path d="M6 22v-4"/><path d="M10 22v-4"/><path d="M14 22v-4"/><path d="M18 22v-4"/><path d="M22 22v-4"/><path d="M4 18l1.5-1.5l1.5 1.5l1.5-1.5l1.5 1.5l1.5-1.5l1.5 1.5l1.5-1.5l1.5 1.5l1.5-1.5l1.5 1.5l1.5-1.5l1.5 1.5"/><path d="M6 18c0-3 2-5 4-7c2-2 4-4 4-7"/><path d="M18 18c0-3-2-5-4-7c-2-2-4-4-4-7"/></svg>
-                        <h3 class="count-value text-6xl font-extrabold text-white" data-value="28" data-unit="%">0%</h3>
-                    </div>
-                    <p class="text-xl font-semibold text-gray-200 mb-2">Avg. Client ROI Increase</p>
-                    <p class="text-gray-400 text-sm">YOY revenue uplift for agricultural clients through optimization and smart strategy.</p>
-                </div>
-
-                <div class="success-metric-card bg-gray-800 p-8 rounded-xl shadow-2xl border-t-4 hover:border-l-4 transition-all duration-300" style="border-color: rgb(59, 130, 246);">
-                    <div class="flex items-center mb-4 justify-center">
-                        <svg class="icon-metric" style="background-color: rgb(59, 130, 246);"><path d="M2 17l10-10l10 10"/><path d="M8 11.5l-6-4.5l10-10l10 10l-6 4.5"/><path d="M12 2l-10 10l10 10l10-10z"/></svg>
-                        <h3 class="count-value text-6xl font-extrabold text-white" data-value="92" data-unit="%">0%</h3>
-                    </div>
-                    <p class="text-xl font-semibold text-gray-200 mb-2">% Students Achieving 'A' Grade</p>
-                    <p class="text-gray-400 text-sm">STEM students consistently outperform benchmarks in standardized testing and course finals.</p>
-                </div>
-
-                <div class="success-metric-card bg-gray-800 p-8 rounded-xl shadow-2xl border-t-4 hover:border-l-4 transition-all duration-300" style="border-color: rgb(45, 212, 191);">
-                    <div class="flex items-center mb-4 justify-center">
-                        <svg class="icon-metric" style="background-color: rgb(45, 212, 191);"><path d="M12 19.5c0 1.933-1.567 3.5-3.5 3.5s-3.5-1.567-3.5-3.5"/><path d="M12 19.5c0 1.933 1.567 3.5 3.5 3.5s3.5-1.567 3.5-3.5"/><path d="M12 19.5V12"/><path d="M15.5 16.5l-3.5-3.5"/><path d="M8.5 16.5l3.5-3.5"/><path d="M17.846 17.5l-1.346-1.346"/><path d="M6.154 17.5l1.346-1.346"/><path d="M19 12h-2"/><path d="M5 12h2"/><path d="M19 9h-2"/><path d="M5 9h2"/><path d="M17.846 6.5l-1.346 1.346"/><path d="M6.154 6.5l1.346 1.346"/><path d="M15.5 4.5l-3.5 3.5"/><path d="M8.5 4.5l3.5 3.5"/></svg>
-                        <h3 class="count-value text-6xl font-extrabold text-white" data-value="95" data-unit="+">0+</h3>
-                    </div>
-                    <p class="text-xl font-semibold text-gray-200 mb-2">Avg. Website PageSpeed Score</p>
-                    <p class="text-gray-400 text-sm">Frontend projects consistently optimized for performance, accessibility, and SEO readiness.</p>
-                </div>
-            </div>
-        </section>
-
-        <hr class="my-16 border-gray-700" />
-
-        <section id="consulting" class="py-20">
-            <div class="flex flex-col lg:flex-row items-center justify-between mb-12">
-                <div class="lg:w-1/2">
-                    <h2 class="text-4xl font-extrabold text-green-400 mb-4 flex items-center">
-                        <svg class="w-10 h-10 mr-3 p-2 rounded-lg bg-green-900/50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 22v-4"/><path d="M6 22v-4"/><path d="M10 22v-4"/><path d="M14 22v-4"/><path d="M18 22v-4"/><path d="M22 22v-4"/><path d="M4 18l1.5-1.5l1.5 1.5l1.5-1.5l1.5 1.5l1.5-1.5l1.5 1.5l1.5-1.5l1.5 1.5l1.5-1.5l1.5 1.5l1.5-1.5l1.5 1.5"/><path d="M6 18c0-3 2-5 4-7c2-2 4-4 4-7"/><path d="M18 18c0-3-2-5-4-7c-2-2-4-4-4-7"/></svg>
-                        Agricultural Consulting: Cultivating Profit
-                    </h2>
-                    <p class="text-lg text-gray-300">
-                        I translate complex agricultural data into actionable strategies that **significantly boost yield, reduce waste, and ensure sustainability**. My focus is on leveraging technology and data science to drive real-world farm profitability.
-                    </p>
-                </div>
-                <div class="lg:w-1/2 flex justify-center lg:justify-end mt-8 lg:mt-0">
-                    <div class="bg-gray-800 p-4 rounded-xl shadow-xl border border-gray-700 transform transition-transform duration-500 hover:scale-[1.02]">
-                        <img
-                            src="https://placehold.co/400x250/10b981/ffffff?text=Agri+Dashboard"
-                            alt="Agricultural Consulting Dashboard"
-                            class="rounded-lg object-cover w-full h-auto"
-                        />
-                        <p class="text-sm text-gray-400 mt-3 text-center">Visualizing yield optimization strategies. </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-                <div class="bg-gray-800 p-8 rounded-xl shadow-2xl border-l-4 border-green-500 transition-shadow duration-300 hover:shadow-green-500/30">
-                    <h3 class="text-2xl font-bold text-white mb-3">Case Study: Resource Optimization</h3>
-                    <img src="https://placehold.co/350x200/065f46/ffffff?text=Irrigation+System" alt="Irrigation System Optimization" class="rounded-md object-cover w-full h-auto mb-4"/>
-                    <p class="text-gray-400 mb-4 font-bold">
-                        Problem: A large-scale vineyard faced erratic water consumption and fertilizer costs.
-                    </p>
-                    <ul class="space-y-3 text-gray-300">
-                        <li class="flex items-start"><svg class="w-5 h-5 text-green-400 mr-2 mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6l-9 9-4.5-4.5"/><path d="M22 10l-10 10-5-5"/></svg> **My Solution:** Implemented a sensor-based irrigation model and created a custom data visualization dashboard.</li>
-                        <li class="flex items-start"><svg class="w-5 h-5 text-green-400 mr-2 mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-4"/></svg> **Success:** Achieved a **35% reduction in annual water usage** and a **12% decrease in fertilizer expense** within one season.</li>
-                    </ul>
-                </div>
+            <!-- DESKTOP NAV -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#skills" class="text-gray-300 hover:text-white transition font-medium">Skills</a>
+                <a href="#projects" class="text-gray-300 hover:text-white transition font-medium">Projects</a>
+                <a href="#contact" class="text-gray-300 hover:text-white transition font-medium">Contact</a>
                 
-                <div class="bg-gray-800 p-8 rounded-xl shadow-2xl border-l-4 border-green-500 transition-shadow duration-300 hover:shadow-green-500/30">
-                    <h3 class="text-2xl font-bold text-white mb-3">Case Study: Market & Yield Forecasting</h3>
-                    <img src="https://placehold.co/350x200/065f46/ffffff?text=Yield+Forecast" alt="Yield Forecasting Graph" class="rounded-md object-cover w-full h-auto mb-4"/>
-                    <p class="text-gray-400 mb-4 font-bold">
-                        Problem: A producer needed accurate forecasting to lock in future sales prices and maximize inventory profits.
-                    </p>
-                    <ul class="space-y-3 text-gray-300">
-                        <li class="flex items-start"><svg class="w-5 h-5 text-green-400 mr-2 mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6l-9 9-4.5-4.5"/><path d="M22 10l-10 10-5-5"/></svg> **My Solution:** Developed a predictive model integrating weather data, historical yield, and commodity market trends.</li>
-                        <li class="flex items-start"><svg class="w-5 h-5 text-green-400 mr-2 mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-4"/></svg> **Success:** Improved forecast accuracy by **18%**, leading to a **$150k+ increase in hedging profits** in a volatile quarter.</li>
-                    </ul>
+                <!-- RESUME BUTTON -->
+                <a href="c:resume. pdf" download class="px-5 py-2 rounded-full bg-gradient-to-r from-cyan-400 to-green-400 text-gray-900 font-bold hover:scale-105 transition duration-200">
+                    Download Resume
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT WRAPPER -->
+    <main class="pt-16">
+
+        <!-- HERO SECTION -->
+        <header id="hero" class="min-h-[90vh] flex items-center justify-center text-center px-6 relative overflow-hidden">
+            <div class="max-w-5xl mx-auto">
+                <!-- PROFILE IMAGE -->
+                <img src="YOUR-IMAGE.jpg" alt="Vickie Brown" class="w-40 h-40 rounded-full object-cover border-4 border-cyan-400 mx-auto shadow-2xl mb-8" />
+
+                <!-- SMALL INTRO -->
+                <p class="uppercase tracking-[0.3em] text-cyan-400 text-sm mb-4 font-semibold">
+                    Frontend Developer
+                </p>
+
+                <!-- MAIN HEADING -->
+                <h1 class="text-5xl md:text-7xl font-black leading-tight mb-6">
+                    Building
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-green-400">
+                        Fast, Modern &amp; Responsive
+                    </span>
+                    Web Experiences
+                </h1>
+
+                <!-- SUBTEXT -->
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed mb-10">
+                    Frontend developer specializing in React, JavaScript, Tailwind CSS, and responsive UI development.
+                </p>
+
+                <!-- BUTTONS -->
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#projects" class="px-8 py-4 rounded-full bg-cyan-500 hover:bg-cyan-400 text-gray-900 font-bold shadow-xl transition hover:scale-105 duration-200">
+                        View Projects
+                    </a>
+                    <a href="#contact" class="px-8 py-4 rounded-full border border-gray-700 text-white hover:border-cyan-400 hover:text-cyan-400 transition duration-200">
+                        Hire Me
+                    </a>
                 </div>
             </div>
-        </section>
+        </header>
 
-        <hr class="my-16 border-gray-700" />
+        <!-- SKILLS SECTION -->
+        <section id="skills" class="py-24 px-4 sm:px-6 lg:px-8 bg-gray-900">
+            <div class="container mx-auto">
+                <h2 class="text-4xl sm:text-5xl font-extrabold text-center mb-16">
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-cyan-400">
+                        Technical Skills
+                    </span>
+                </h2>
 
-        <section id="tutoring" class="py-20">
-            <div class="flex flex-col lg:flex-row items-center justify-between mb-12">
-                <div class="lg:w-1/2">
-                    <h2 class="text-4xl font-extrabold text-blue-400 mb-4 flex items-center">
-                        <svg class="w-10 h-10 mr-3 p-2 rounded-lg bg-blue-900/50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 17l10-10l10 10"/><path d="M8 11.5l-6-4.5l10-10l10 10l-6 4.5"/><path d="M12 2l-10 10l10 10l10-10z"/></svg>
-                        STEM Education: Accelerating Potential
-                    </h2>
-                    <p class="text-lg text-gray-300">
-                        My tutoring is not about memorization; it's about **building conceptual mastery** in Physics, Calculus, and Computer Science. My unique methodology combines rigorous subject knowledge with structured problem-solving techniques.
-                    </p>
-                </div>
-                <div class="lg:w-1/2 flex justify-center lg:justify-end mt-8 lg:mt-0">
-                    <div class="bg-gray-800 p-4 rounded-xl shadow-xl border border-gray-700 transform transition-transform duration-500 hover:scale-[1.02]">
-                        <img
-                            src="https://placehold.co/400x250/3b82f6/ffffff?text=Science+Class"
-                            alt="STEM Education Classroom"
-                            class="rounded-lg object-cover w-full h-auto"
-                        />
-                        <p class="text-sm text-gray-400 mt-3 text-center">Interactive learning environment. </p>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 max-w-5xl mx-auto">
+                    <!-- HTML5 -->
+                    <div class="skill-card p-6 bg-gray-800 rounded-xl shadow-2xl transition-all duration-300 hover:scale-105 hover:bg-gray-700 border border-gray-700 hover:border-green-400 text-center">
+                        <svg class="h-12 w-12 mx-auto mb-4 text-orange-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3 4 10 4 10-4 10-4"/><path d="M2 16s3 4 10 4 10-4 10-4"/><path d="M2 8s3 4 10 4 10-4 10-4"/><path d="M12 2v20"/></svg>
+                        <h3 class="text-xl font-bold text-gray-50 mb-1">HTML5</h3>
+                        <p class="text-sm text-gray-400">Structure &amp; Semantics</p>
+                    </div>
+
+                    <!-- CSS3 -->
+                    <div class="skill-card p-6 bg-gray-800 rounded-xl shadow-2xl transition-all duration-300 hover:scale-105 hover:bg-gray-700 border border-gray-700 hover:border-green-400 text-center">
+                        <svg class="h-12 w-12 mx-auto mb-4 text-blue-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 3v18M17 3v18M3 10h18M3 14h18"/></svg>
+                        <h3 class="text-xl font-bold text-gray-50 mb-1">CSS3</h3>
+                        <p class="text-sm text-gray-400">Styling &amp; Responsiveness</p>
+                    </div>
+
+                    <!-- Tailwind CSS -->
+                    <div class="skill-card p-6 bg-gray-800 rounded-xl shadow-2xl transition-all duration-300 hover:scale-105 hover:bg-gray-700 border border-gray-700 hover:border-green-400 text-center">
+                        <svg class="h-12 w-12 mx-auto mb-4 text-cyan-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                        <h3 class="text-xl font-bold text-gray-50 mb-1">Tailwind CSS</h3>
+                        <p class="text-sm text-gray-400">Utility-First Styling</p>
+                    </div>
+
+                    <!-- JavaScript -->
+                    <div class="skill-card p-6 bg-gray-800 rounded-xl shadow-2xl transition-all duration-300 hover:scale-105 hover:bg-gray-700 border border-gray-700 hover:border-green-400 text-center">
+                        <svg class="h-12 w-12 mx-auto mb-4 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 0 1 11.21 3 9 9 0 0 0 21 12.79z"/></svg>
+                        <h3 class="text-xl font-bold text-gray-50 mb-1">JavaScript</h3>
+                        <p class="text-sm text-gray-400">Logic &amp; Interactivity</p>
+                    </div>
+
+                    <!-- React -->
+                    <div class="skill-card p-6 bg-gray-800 rounded-xl shadow-2xl transition-all duration-300 hover:scale-105 hover:bg-gray-700 border border-gray-700 hover:border-green-400 text-center">
+                        <svg class="h-12 w-12 mx-auto mb-4 text-cyan-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="2" x2="12" y2="22"/><path d="M18.36 5.64l-12.72 12.72M5.64 5.64l12.72 12.72"/></svg>
+                        <h3 class="text-xl font-bold text-gray-50 mb-1">React</h3>
+                        <p class="text-sm text-gray-400">Component Architecture</p>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-                <div class="bg-gray-800 p-6 rounded-xl shadow-xl border-t-4 border-blue-500 transition-shadow duration-300 hover:shadow-blue-500/30">
-                    <svg class="w-8 h-8 text-blue-400 mb-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/><path d="M17 11l4.5 4.5-4.5 4.5"/></svg>
-                    <p class="text-4xl font-extrabold text-white mb-2">100%</p>
-                    <p class="text-gray-300 font-semibold">University Acceptance Rate</p>
-                    <p class="text-gray-400 text-sm mt-1">Students placed in top-tier STEM university programs over the last 3 years.</p>
-                </div>
-                <div class="bg-gray-800 p-6 rounded-xl shadow-xl border-t-4 border-blue-500 transition-shadow duration-300 hover:shadow-blue-500/30">
-                    <svg class="w-8 h-8 text-blue-400 mb-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-4"/></svg>
-                    <p class="text-4xl font-extrabold text-white mb-2">180+</p>
-                    <p class="text-gray-300 font-semibold">Average SAT Math Score Gain</p>
-                    <p class="text-gray-400 text-sm mt-1">Documented average point increase for all students on first attempt post-tutoring.</p>
-                </div>
-                <div class="bg-gray-800 p-6 rounded-xl shadow-xl border-t-4 border-blue-500 transition-shadow duration-300 hover:shadow-blue-500/30">
-                    <svg class="w-8 h-8 text-blue-400 mb-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6l-9 9-4.5-4.5"/><path d="M22 10l-10 10-5-5"/></svg>
-                    <p class="text-4xl font-extrabold text-white mb-2">9/10</p>
-                    <p class="text-gray-300 font-semibold">Parent Satisfaction Score</p>
-                    <p class="text-gray-400 text-sm mt-1">Consistently high feedback on personalized curriculum development and communication.</p>
+        <!-- PROJECTS SECTION -->
+        <section id="projects" class="py-24 px-4 sm:px-6 lg:px-8 bg-gray-900/50">
+            <div class="container mx-auto max-w-6xl">
+                <h2 class="text-4xl sm:text-5xl font-extrabold text-center mb-16">
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-green-400">
+                        Featured Projects
+                    </span>
+                </h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project 1: AkunaFarms -->
+                    <div class="bg-gray-800 p-6 rounded-xl shadow-2xl border-t-4 border-green-500 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-3">AkunaFarms: E-Commerce</h3>
+                            <img src="https://placehold.co/350x200/10b981/ffffff?text=AkunaFarms+Site" alt="AkunaFarms Website" class="rounded-md object-cover w-full h-48 mb-4"/>
+                            <p class="text-gray-400 mb-6 text-sm leading-relaxed">
+                                Designed and deployed a responsive e-commerce platform for an agricultural business, handling product listings, inventory, and online order management.
+                            </p>
+                        </div>
+                        <div class="space-y-3">
+                            <a href="https://akunafarm.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-green-400 hover:text-green-300 font-semibold flex items-center transition-colors">
+                                View Live Site
+                                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                            </a>
+                            <a href="https://github.com/babygalijay/akunafarm-site" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-300 text-xs flex items-center transition-colors">
+                                View Code on GitHub
+                                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 3M12 17.5c-4.42 0-8-3.58-8-8 0-3.5 2.15-6.52 5.1-7.79 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .04-.01.07-.02M12 2v20M12 22v-4"/></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: gladiator soccer team -->
+                    <div class="bg-gray-800 p-6 rounded-xl shadow-2xl border-t-4 border-cyan-500 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-3">Gladiator Soccer Team</h3>
+                            <img src="https://placehold.co/350x200/0891b2/ffffff?text=Gladiator+Soccer+Team" alt="Gladiator Soccer Team" class="rounded-md object-cover w-full h-48 mb-4"/>
+                            <p class="text-gray-400 mb-6 text-sm leading-relaxed">
+                                Built for a local soccer team, providing a platform for players, coaches, and fans to connect and share updates.
+                            </p>
+                        </div>
+                        <div class="space-y-3">
+                            <a href="https://gladiator-soccer-team-rd4k.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-cyan-300 font-semibold flex items-center transition-colors">
+                                View Live UI Demo
+                                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                            </a>
+                            <a href="https://github.com/babygalijay/gladiator-soccer-team" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-300 text-xs flex items-center transition-colors">
+                                View Code on GitHub
+                                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 3M12 17.5c-4.42 0-8-3.58-8-8 0-3.5 2.15-6.52 5.1-7.79 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .04-.01.07-.02M12 2v20M12 22v-4"/></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: EAT WIT JAY -->
+                    <div class="bg-gray-800 p-6 rounded-xl shadow-2xl border-t-4 border-green-600 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-3">Eat Wit Jay: Restaurant</h3>
+                            <img src="https://placehold.co/350x200/15803d/ffffff?text=EAT+WIT+JAY" alt="Eat Wit Jay App" class="rounded-md object-cover w-full h-48 mb-4"/>
+                            <p class="text-gray-400 mb-6 text-sm leading-relaxed">
+                                A modern mobile-first food ordering hub. Allows streamlined cart handling, reactive item customization, and lightning-fast menu browsing interfaces.
+                            </p>
+                        </div>
+                        <div class="space-y-3">
+                            <a href="https://eatwi-thjay.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-green-400 hover:text-green-300 font-semibold flex items-center transition-colors">
+                                View Live Demo
+                                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                            </a>
+                            <a href="https://eatwi-thjay.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-300 text-xs flex items-center transition-colors">
+                                View Code on GitHub
+                                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 3M12 17.5c-4.42 0-8-3.58-8-8 0-3.5 2.15-6.52 5.1-7.79 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .04-.01.07-.02M12 2v20M12 22v-4"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                     <!-- Project 4: ATTA YOGA -->
+                    <div class="bg-gray-800 p-6 rounded-xl shadow-2xl border-t-4 border-cyan-500 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-3">ATTA YOGA: Wellness</h3>
+                            <img src="https://placehold.co/350x200/0891b2/ffffff?text=ATTA+YOGA" alt="ATTA YOGA Website" class="rounded-md object-cover w-full h-48 mb-4"/>
+                            <p class="text-gray-400 mb-6 text-sm leading-relaxed">
+                                Developed a wellness-focused website for a yoga studio, featuring class schedules, instructor profiles, and an integrated booking system.
+                            </p>
+                        </div>
+                        <div class="space-y-3">
+                            <a href="https://yoga-pearl-two.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-cyan-300 font-semibold flex items-center transition-colors">
+                                View Live Site
+                                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                            </a>
+                            <a href="https://github.com/yourusername/yoga-website" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-300 text-xs flex items-center transition-colors">
+                                View Code on GitHub
+                            </a>   
+                            </div>
+                            </div>
+                            <!-- Project 5: elite Homes --> 
+                    <div class="bg-gray-800 p-6 rounded-xl shadow-2xl border-t-4 border-green-600 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-3">Elite Homes: services</h3>
+                            <img src="https://placehold.co/350x200/15803d/ffffff?text=Elite+Homes" alt="Elite Homes Website" class="rounded-md object-cover w-full h-48 mb-4"/>
+                            <p class="text-gray-400 mb-6 text-sm leading-relaxed">
+                                A responsive website for showcasing services and solutions, providint dedicated and trusted handyman for home services.
+                            </p>
+                            </div>
+                            <div class="space-y-3">
+                                <a href="https://elite-homes.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-green-400 hover:text-green-300 font-semibold flex items-center transition-colors">
+                                    View Live Site
+                                    <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                                </a>
+                                <a href="https://github.com/yourusername/elite-homes" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-300 text-xs flex items-center transition-colors">
+                                    View Code on GitHub
+                                </a>
+                            </div>
+                            </div>
+                            <!-- Project 6: food Wagon-->
+                    <div class="bg-gray-800 p-6 rounded-xl shadow-2xl border-t-4 border-cyan-500 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-3">Food Wagon: Restaurant</h3>
+                            <img src="https://placehold.co/350x200/0891b2/ffffff?text=Food+Wagon" alt="Food Wagon Website" class="rounded-md object-cover w-full h-48 mb-4"/>
+                            <p class="text-gray-400 mb-6 text-sm leading-relaxed">
+                                A modern restaurant website with online ordering capabilities, menu browsing, and a responsive design for mobile and desktop users.
+                            </p>
+                            </div>
+                            <div class="space-y-3">
+                                <a href="https://food-wagon.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-cyan-300 font-semibold flex items-center transition-colors">
+                                    View Live Site
+                                    <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                                </a>
+                                <a href="https://github.com/babygalijay/food-wagon" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-300 text-xs flex items-center transition-colors">
+                                    View Code on GitHub
+                                </a>
+                                </div>
+                            </div>
+
                 </div>
             </div>
         </section>
 
-        <hr class="my-16 border-gray-700" />
+        <hr class="border-gray-800" />
 
-       <section id="development" class="py-20">
-    <div class="flex flex-col lg:flex-row items-center justify-between mb-12">
-        <div class="lg:w-1/2">
-            <h2 class="text-4xl font-extrabold text-cyan-400 mb-4 flex items-center">
-                <svg class="w-10 h-10 mr-3 p-2 rounded-lg bg-cyan-900/50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-                Front-End Development: Code for Impact
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="py-24 px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto">
+            <h2 class="text-5xl font-extrabold text-center mb-6">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-cyan-400">
+                    Let's Connect &amp; Build
+                </span>
             </h2>
-            <p class="text-lg text-gray-300">
-                I build **clean, fast, and responsive web applications** that drive engagement and solve real-world problems—often integrating the data analysis I use in my consulting work into beautiful UIs.
+            <p class="text-lg text-gray-400 text-center mb-12 leading-relaxed">
+                Whether it's optimizing digital infrastructure, accelerating platforms, or launching a performance-driven application, I'm ready to bring clean code to your project.
             </p>
-        </div>
-        <div class="lg:w-1/2 flex justify-center lg:justify-end mt-8 lg:mt-0">
-            <div class="bg-gray-800 p-4 rounded-xl shadow-xl border border-gray-700 transform transition-transform duration-500 hover:scale-[1.02]">
-                <img
-                    src="https://placehold.co/400x250/06b6d4/ffffff?text=Web+Code"
-                    alt="Front-End Development Screen"
-                    class="rounded-lg object-cover w-full h-auto"
-                />
-                <p class="text-sm text-gray-400 mt-3 text-center">Modern, data-driven web application architecture. </p>
+
+            <!-- Contact Form -->
+            <div class="bg-gray-800 p-8 rounded-xl shadow-2xl border border-gray-700">
+                <form class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your Name" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition duration-150">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="you@example.com" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition duration-150">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-300 mb-2">How can I help you?</label>
+                        <textarea id="message" name="message" rows="5" placeholder="I'm interested in..." required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition duration-150"></textarea>
+                    </div>
+                    <button type="submit" class="w-full px-6 py-3 text-lg font-bold rounded-lg bg-gradient-to-r from-green-500 to-cyan-500 hover:from-green-400 hover:to-cyan-400 text-gray-900 transition-all duration-300 shadow-xl transform hover:scale-[1.01]">
+                        Send Message
+                    </button>
+                </form>
             </div>
-        </div>
-    </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-        
-        <div class="bg-gray-800 p-8 rounded-xl shadow-2xl border-l-4 border-green-500 transition-shadow duration-300 hover:shadow-green-500/30">
-            <h3 class="text-2xl font-bold text-white mb-3">AkunaFarms: E-Commerce Platform</h3>
-            <img src="https://placehold.co/350x200/10b981/ffffff?text=AkunaFarms+Site" alt="AkunaFarms Website Screenshot" class="rounded-md object-cover w-full h-auto mb-4"/>
-            <p class="text-gray-400 mb-4">
-                Designed and deployed a **responsive e-commerce platform** for an agricultural business, handling product listings, inventory, and online order management.
-            </p>
-            
-            <a 
-                href="https://akunafarm.vercel.app/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                class="text-green-400 hover:text-green-300 font-semibold flex items-center transition-colors mb-3">
-                View Live Site
-                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            </a>
-
-            <a 
-                href="https://akunafarm.vercel.app/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                class="text-gray-400 hover:text-gray-300 text-sm flex items-center transition-colors">
-                View Code on GitHub
-                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 3M12 17.5c-4.42 0-8-3.58-8-8 0-3.5 2.15-6.52 5.1-7.79 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .04-.01.07-.02M12 2v20M12 22v-4"/></svg>
-            </a>
-        </div>
-        
-        <div class="bg-gray-800 p-8 rounded-xl shadow-2xl border-l-4 border-cyan-500 transition-shadow duration-300 hover:shadow-cyan-500/30">
-            <h3 class="text-2xl font-bold text-white mb-3">CliqPharm: Online Pharmacy UI</h3>
-            <img src="https://placehold.co/350x200/0891b2/ffffff?text=Online+Pharmacy+UI" alt="CliqPharm Screenshot" class="rounded-md object-cover w-full h-auto mb-4"/>
-            <p class="text-gray-400 mb-4">
-                Built the front-end for a digital pharmacy, focusing on **accessibility, security**, and a smooth user experience for prescription and over-the-counter ordering.
-            </p>
-            
-            <a 
-                href="https://cliqpharm.vercel.app/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                class="text-cyan-400 hover:text-cyan-300 font-semibold flex items-center transition-colors mb-3">
-                View Live Demo
-                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            </a>
-
-            <a 
-                href="https://cliqpharm.vercel.app/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                class="text-gray-400 hover:text-gray-300 text-sm flex items-center transition-colors">
-                View Code on GitHub
-                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 3M12 17.5c-4.42 0-8-3.58-8-8 0-3.5 2.15-6.52 5.1-7.79 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .04-.01.07-.02M12 2v20M12 22v-4"/></svg>
-            </a>
-        </div>
-
-        <div class="bg-gray-800 p-8 rounded-xl shadow-2xl border-l-4 border-yellow-500 transition-shadow duration-300 hover:shadow-yellow-500/30">
-            <h3 class="text-2xl font-bold text-white mb-3">Local School Website Redesign</h3>
-            <img src="https://placehold.co/350x200/f59e0b/ffffff?text=School+Site+UI" alt="School Website Screenshot" class="rounded-md object-cover w-full h-auto mb-4"/>
-            <p class="text-gray-400 mb-4">
-                Led the redesign of a school's public site, focusing on a responsive information architecture and integration points for parent and student LMS portals.
-            </p>
-            
-            <a 
-                href="https://blossom-gates-academy.vercel.app/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                class="text-yellow-400 hover:text-yellow-300 font-semibold flex items-center transition-colors mb-3">
-                View Live Site
-                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            </a>
-
-            <a 
-                href="https://blossom-gates-academy.vercel.app/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                class="text-gray-400 hover:text-gray-300 text-sm flex items-center transition-colors">
-                View Code on GitHub
-                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 3M12 17.5c-4.42 0-8-3.58-8-8 0-3.5 2.15-6.52 5.1-7.79 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .04-.01.07-.02M12 2v20M12 22v-4"/></svg>
-            </a>
-        </div>
-    </div>
-    </section>
+            <!-- Social Links -->
+            <div class="mt-12 text-center">
+                <p class="text-gray-400 text-base mb-4">Find me on professional networks:</p>
+                <div class="flex justify-center space-x-6">
+                    <a href="https://www.linkedin.com/in/brown-ijeoma-45ab8226b/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-cyan-400 transition-colors duration-200">
+                        <span class="sr-only">LinkedIn</span>
+                        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.568-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="https://github.com/babygalijay" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-green-400 transition-colors duration-200">
+                        <span class="sr-only">GitHub</span>
+                        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.087-.731.084-.68.084-.68 1.205.084 1.838 1.237 1.838 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.304.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.046.138 3.006.404 2.291-1.552 3.298-1.23 3.298-1.23.652 1.652.241 2.873.118 3.176.772.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.923.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.8.576C20.566 21.823 24 17.321 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
 
     </main>
 
-    <hr class="my-16 border-gray-700" />
-
-<section id="contact" class="py-20">
-    <h2 class="text-4xl font-extrabold text-white text-center mb-4">
-        Ready to Cultivate Success?
-    </h2>
-    <p class="text-xl text-gray-400 text-center max-w-2xl mx-auto mb-12">
-        Whether you need a full-stack farm analysis, a custom web application, or expert tutoring, I'm ready to discuss your goals.
-    </p>
-
-    <div class="max-w-xl mx-auto bg-gray-800 p-8 rounded-xl shadow-2xl border-t-4 border-green-500">
-        <form id="contact-form" class="space-y-6" action="https://formspree.io/f/mnnodkoo" method="POST">
-            <div>
-                <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Name</label>
-                <input
-                    type="text" id="name" name="name"
-                    class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:ring-green-500 focus:border-green-500 transition-colors"
-                    placeholder="Your Full Name" required
-                />
-            </div>
-            <div>
-                <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Email</label>
-                <input
-                    type="email" id="email" name="_replyto" 
-                    class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:ring-green-500 focus:border-green-500 transition-colors"
-                    placeholder="name@company.com" required
-                />
-            </div>
-            <div>
-                <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Project Details</label>
-                <textarea
-                    id="message" name="message" rows="5"
-                    class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:ring-green-500 focus:border-green-500 transition-colors"
-                    placeholder="Tell me about your consulting need, project, or tutoring goals..." required
-                ></textarea>
-            </div>
-
-            <p id="form-status" class="text-sm font-semibold h-4"></p>
-
-            <button
-                type="submit"
-                class="w-full flex justify-center items-center px-6 py-3 font-bold rounded-lg bg-gradient-to-r from-green-500 to-cyan-500 hover:from-green-400 hover:to-cyan-400 text-gray-900 transition-all duration-300 shadow-xl transform hover:scale-[1.01]"
-            >
-                <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-20 10 20 10-2-10zM10 14h6"/></svg>
-                Send Inquiry
-            </button>
-        </form>
-    </div>
-</section>
-
-  <footer class="bg-gray-900 border-t border-gray-800 py-12 mt-20">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-gray-400">
-            
-            <div class="col-span-2 md:col-span-1">
-                <a href="#hero" class="text-2xl font-extrabold tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-cyan-400 mb-3 block">
-                    VICKIE BROWN
-                </a>
-                <p class="text-sm">Driving growth from **Soil to Screen**.</p>
-                <p class="text-xs mt-4">&copy; 2025 Vickie Brown. All rights reserved.</p>
-            </div>
-
-            <div>
-                <h4 class="text-lg font-bold text-white mb-4">Quick Links</h4>
-                <ul class="space-y-2">
-                    <li><a href="#success-snapshot" class="hover:text-cyan-400 transition-colors duration-200">Results Snapshot</a></li>
-                    <li><a href="#consulting" class="hover:text-cyan-400 transition-colors duration-200">Agricultural Consulting</a></li>
-                    <li><a href="#tutoring" class="hover:text-cyan-400 transition-colors duration-200">STEM Education</a></li>
-                    <li><a href="#development" class="hover:text-cyan-400 transition-colors duration-200">Web Development</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <h4 class="text-lg font-bold text-white mb-4">Connect</h4>
-                <ul class="space-y-3">
-                    <li class="flex items-center">
-                        <svg class="w-5 h-5 text-green-400 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                        <a href="mailto:ejeomavickiebrown1@gmail.com" class="hover:text-cyan-400 transition-colors duration-200">ejeomavickiebrown1@gmail.com</a>
-                    </li>
-                    <li class="flex items-center">
-                        <svg class="w-5 h-5 text-green-400 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 3.08 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                        <a href="tel:+2347039280073" class="hover:text-cyan-400 transition-colors duration-200">+234 703 928 0073</a>
-                    </li>
-                    <li class="flex items-center">
-                        <svg class="w-5 h-5 text-green-400 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-                        <a href="http://linkedin.com/in/agada-ijeoma-45ab8226b" target="_blank" class="hover:text-cyan-400 transition-colors duration-200">LinkedIn Profile</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="col-span-2 md:col-span-1 flex flex-col justify-between">
-                <div>
-                    <h4 class="text-lg font-bold text-white mb-4">Let's Get Started</h4>
-                    <p class="text-sm mb-4">Have a project, strategy session, or tutoring inquiry? Reach out now.</p>
-                </div>
-                
-                <a
-                    href="#contact"
-                    class="w-full text-center px-6 py-3 text-sm font-bold rounded-lg bg-gradient-to-r from-green-500 to-cyan-500 hover:from-green-400 hover:to-cyan-400 text-gray-900 transition-all duration-300 shadow-xl mt-4 md:mt-0"
-                >
-                    Book a Free Consultation
-                </a>
-            </div>
+    <!-- FOOTER -->
+    <footer class="bg-gray-800 border-t border-gray-700 py-8">
+        <div class="container mx-auto px-4 text-center text-gray-500 text-sm space-y-2">
+            <p>&copy; 2026 Vickie Brown. All rights reserved. </p>
+            <p>Web Development</p>
         </div>
-    </div>
-</footer>
+    </footer>
 
-   <script>
-    // ----------------------------------------------------------------------
-    // 1. Mobile Menu Toggle Logic
-    // ----------------------------------------------------------------------
-    function initMobileMenuToggle() {
-        const button = document.getElementById('menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const iconOpen = document.getElementById('icon-open');
-        const iconClose = document.getElementById('icon-close');
-        const mobileLinks = document.querySelectorAll('.mobile-nav-link');
-
-        if (!button || !mobileMenu) return; // Exit if elements aren't found
-
-        function toggleMenu() {
-            const isExpanded = button.getAttribute('aria-expanded') === 'true' || false;
-            
-            button.setAttribute('aria-expanded', !isExpanded);
-            mobileMenu.classList.toggle('hidden');
-            iconOpen.classList.toggle('hidden');
-            iconClose.classList.toggle('hidden');
-        }
-
-        button.addEventListener('click', toggleMenu);
-
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (button.getAttribute('aria-expanded') === 'true') {
-                    toggleMenu();
-                }
-            });
-        });
-    }
-
-
-    // ----------------------------------------------------------------------
-    // 2. Role Slider Animation Logic
-    // ----------------------------------------------------------------------
-    function initRoleSlider() {
-        const roles = ["Agricultural Consultant", "Front-End Developer", "STEM Tutor"];
-        const element = document.getElementById("animated-role");
-        if (!element) return; // Exit if element isn't found
-
-        let roleIndex = 0;
-
-        function updateRole() {
-            element.classList.remove('opacity-100');
-            element.classList.add('opacity-0');
-
-            setTimeout(() => {
-                element.textContent = roles[roleIndex];
-                roleIndex = (roleIndex + 1) % roles.length;
-                element.classList.remove('opacity-0');
-                element.classList.add('opacity-100');
-            }, 350); 
-        }
-
-        element.textContent = roles[roleIndex];
-        element.classList.add('opacity-100');
-        roleIndex = (roleIndex + 1) % roles.length;
-
-        setInterval(updateRole, 3500); 
-    }
-
-
-    // ----------------------------------------------------------------------
-    // 3. Contact Form Submission Logic (for Formspree)
-    // ----------------------------------------------------------------------
-    function initContactForm() {
-        const form = document.getElementById('contact-form');
-        const formStatus = document.getElementById('form-status');
-        if (!form || !formStatus) return; // Exit if elements aren't found
-
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            formStatus.textContent = 'Sending...';
-            formStatus.classList.remove('text-green-500', 'text-red-500');
-            formStatus.classList.add('text-yellow-500');
-
-            try {
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: new FormData(form),
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-
-                if (response.ok) {
-                    formStatus.textContent = 'Message sent successfully! I will be in touch soon.';
-                    formStatus.classList.remove('text-yellow-500', 'text-red-500');
-                    formStatus.classList.add('text-green-500');
-                    form.reset();
-                } else {
-                    formStatus.textContent = 'Oops! There was an issue submitting the form.';
-                    formStatus.classList.remove('text-yellow-500', 'text-green-500');
-                    formStatus.classList.add('text-red-500');
-                }
-            } catch (error) {
-                formStatus.textContent = 'An error occurred. Please try again or email me directly.';
-                formStatus.classList.remove('text-yellow-500', 'text-green-500');
-                formStatus.classList.add('text-red-500');
-                console.error('Form submission error:', error);
-            }
-        });
-    }
-
-    // ----------------------------------------------------------------------
-    // 4. Smooth Scroll Logic
-    // ----------------------------------------------------------------------
-    function initSmoothScroll() {
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href !== '#') {
-                    e.preventDefault();
-                    document.querySelector(href).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    }
-    
-    // ----------------------------------------------------------------------
-    // 5. Active Navigation Link Logic (Intersection Observer)
-    // ----------------------------------------------------------------------
-    function initActiveNavLinks() {
-        const navLinks = document.querySelectorAll('.nav-link');
-        const sections = document.querySelectorAll('main section, header');
-        
-        // This is a CSS style you need to add for the link highlighting
-        // Example: .active-nav { border-bottom-color: #38bdf8; color: white !important; }
-
-        const options = {
-            root: null,
-            threshold: 0.3,
-            rootMargin: "-20% 0px -60% 0px" 
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            // Remove active class from all links first
-            navLinks.forEach(link => {
-                link.classList.remove('active-nav');
-                // Use Tailwind classes if you haven't defined .active-nav
-                // link.classList.remove('text-white', 'border-cyan-400'); 
-                // link.classList.add('text-gray-300', 'border-transparent');
-            });
-
-            // Find the currently intersecting section and activate its link
-            let activeId = null;
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    activeId = entry.target.id;
-                }
-            });
-
-            if (activeId) {
-                 const navLink = document.querySelector(`.nav-link[data-section="${activeId}"]`);
-                 if (navLink) {
-                    navLink.classList.add('active-nav');
-                    // If using Tailwind classes directly:
-                    // navLink.classList.remove('text-gray-300', 'border-transparent');
-                    // navLink.classList.add('text-white', 'border-cyan-400'); 
-                 }
-            }
-
-            // Special case for hero section when at the very top
-            if (window.scrollY < 200) {
-                const heroLink = document.querySelector(`.nav-link[data-section="hero"]`);
-                if (heroLink) {
-                    navLinks.forEach(link => link.classList.remove('active-nav'));
-                    heroLink.classList.add('active-nav');
-                    // If using Tailwind classes directly:
-                    // heroLink.classList.add('text-white', 'border-cyan-400');
-                }
-            }
-        }, options);
-
-        sections.forEach(section => {
-            observer.observe(section);
-        });
-
-        // Initial check on load
-        document.addEventListener('scroll', () => {
-             // Re-run intersection observer logic on scroll for better accuracy
-             // (Or just use the hero special case for efficiency)
-             if (window.scrollY < 200) {
-                navLinks.forEach(link => link.classList.remove('active-nav'));
-                const heroLink = document.querySelector(`.nav-link[data-section="hero"]`);
-                if (heroLink) {
-                    heroLink.classList.add('active-nav');
-                }
-            }
-        });
-
-    }
-
-
-    // ----------------------------------------------------------------------
-    // 6. Metric Counter Animation Logic (Combined from your original script)
-    // ----------------------------------------------------------------------
-    function animateCounters() {
-        document.querySelectorAll('.count-value').forEach(element => {
-            const targetValue = parseInt(element.getAttribute('data-value'));
-            const unit = element.getAttribute('data-unit') || '';
-            let startTimestamp = null;
-            const duration = 1500; // 1.5 seconds
-
-            const step = (timestamp) => {
-                if (!startTimestamp) startTimestamp = timestamp;
-                const progress = timestamp - startTimestamp;
-                const current = Math.min(progress / duration, 1) * targetValue;
-
-                element.textContent = Math.floor(current) + unit;
-
-                if (progress < duration) {
-                    window.requestAnimationFrame(step);
-                }
-            };
-            window.requestAnimationFrame(step);
-        });
-    }
-
-    function initMetricCounters() {
-        const counterCards = document.querySelectorAll('.success-metric-card');
-        if (counterCards.length === 0) return;
-
-        const counterObserver = new IntersectionObserver(
-            (entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        animateCounters();
-                        observer.unobserve(entry.target); // Stop observing once animated
-                    }
-                });
-            },
-            { threshold: 0.5 } // Trigger when 50% of the section is visible
-        );
-
-        counterCards.forEach(card => {
-            counterObserver.observe(card);
-        });
-    }
-
-    // ----------------------------------------------------------------------
-    // Main Initialization
-    // ----------------------------------------------------------------------
-    document.addEventListener('DOMContentLoaded', () => {
-        initMobileMenuToggle();
-        initRoleSlider();
-        initContactForm();
-        initSmoothScroll();
-        initActiveNavLinks(); 
-        initMetricCounters(); 
-
-        // Status Indicator Update (moved from a separate script)
-        const authStatus = document.getElementById('auth-status');
-        if (authStatus) {
-            const p = authStatus.querySelector('p');
-            p.textContent = 'All services online.';
-            p.classList.remove('text-yellow-500');
-            p.classList.add('text-green-500');
-        }
-    });
-
-</script>
+    <script src="script.js"></script>
 </body>
 </html>

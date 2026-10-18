@@ -1,0 +1,46 @@
+.font-inter { font-family: 'Inter', sans-serif; }
+        html { scroll-behavior: smooth; }
+        /* Custom Scrollbar for better dark mode aesthetics */
+        body::-webkit-scrollbar { width: 8px; }
+        body::-webkit-scrollbar-track { background: #1f2937; }
+        body::-webkit-scrollbar-thumb { background: #374151; border-radius: 4px; }
+        body::-webkit-scrollbar-thumb:hover { background: #4b5563; }
+        
+        /* Active nav link style */
+        .active-nav {
+            color: #22d3ee !important; /* cyan-400 */
+            border-color: #4ade80 !important; /* green-400 */
+            border-bottom-width: 2px !important;
+        }
+
+        /* SVG icon style for metric cards (optimized) */
+        .icon-metric {
+            width: 44px; /* Slightly larger */
+            height: 44px;
+            margin-right: 0.75rem;
+            padding: 0.6rem; /* Slightly more padding */
+            border-radius: 50%; /* Changed to 50% for a perfect circle */
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            /* Text color inside the circle should be dark for contrast */
+            color: #111827; /* gray-900 */
+        }
+
+        /* Hero Animation Text Style */
+        #animated-role {
+            display: inline-block;
+            transition: color 0.5s ease-in-out;
+        }
+
+        /* Keyframes for a subtle glow/pulse on the metric cards */
+        @keyframes pulse-border {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.4); }
+            50% { box-shadow: 0 0 0 4px rgba(74, 222, 128, 0.1); }
+        }
+
+        .success-metric-card:hover {
+            animation: pulse-border 1.5s infinite;
+        }
